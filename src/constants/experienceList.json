@@ -1,0 +1,33 @@
+[
+  {
+    "company": "Skinstric AI",
+    "role": "Frontend Developer Intern · Remote",
+    "date": "Aug 2025 – Sep 2025",
+    "resps": [
+      "Engineered an end-to-end camera flow using getUserMedia with a custom consent overlay, user guidance, and snapshot capture; implemented client-side JPEG compression with resilient error/fallback handling.",
+      "Delivered an analysis UI with tabs (Race/Age/Gender); normalized heterogeneous API schemas (0–1, 0–100, arrays), ranked outputs, and rendered percentages; added routing and localStorage to persist state.",
+      "Deployed to Vercel and introduced lightweight CI via GitHub Actions; optimized responsiveness and perceived performance.",
+      "Reduced average upload payload from multi-MB images to sub-1 MB via client-side compression, improving reliability on mobile networks.",
+      "Links: Live – skinstric-two.vercel.app · Code – github.com/angelmonoestereo/skinstric"
+    ]
+  },
+  {
+    "company": "NFT Internship",
+    "role": "Frontend Developer Intern · Remote",
+    "date": "Jul 2025 – Aug 2025",
+    "resps": [
+      "Built a responsive React landing with reusable components and lightweight animations; shipped with Vite/React on Vercel.",
+      "Applied basic SEO and accessibility (a11y) checks; collaborated via Git/GitHub with PR reviews.",
+      "Links: Live – angel-internship-nft.vercel.app · Code – github.com/AngelMonoestereo/angel-internship"
+    ]
+  },
+  {
+    "company": "Synchrony Financial",
+    "role": "Customer Service Executive · Orlando, FL",
+    "date": "Oct 2023 – Present",
+    "resps": [
+      "Supported secure access requests and customer verification within compliance requirements.",
+      "Maintained onboarding documentation and accurate tracking logs; partnered with internal technical teams to resolve requests quickly."
+    ]
+  }
+]

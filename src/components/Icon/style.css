@@ -1,0 +1,263 @@
+/* =============== Base glass icon =============== */
+.Icon {
+  display: inline-flex;
+  padding: 14px;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  cursor: pointer;
+  vertical-align: middle;
+  position: relative;
+
+  /* tu estilo original */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.05) 25%,
+    rgba(255, 255, 255, 0.14) 50%,
+    rgba(255, 255, 255, 0.05) 75%
+  );
+  background-size: 200% 100%;
+  backdrop-filter: blur(17px);
+
+  /* mejoras de interacción */
+  transition: background 0.25s ease, border-color 0.25s ease,
+    box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+/* barrido sutil después de montar (como tenías) */
+@keyframes skeletonAnimation {
+  to {
+    background-position: 200% 0;
+  }
+}
+.Icon {
+  animation: skeletonAnimation 2s linear forwards;
+  animation-delay: 3s;
+}
+
+/* =============== Imagen del icono =============== */
+.Icon--icon {
+  display: block;
+  width: 32px;
+  height: 32px;
+
+  /* más legible sin tocar tus assets */
+  filter: brightness(1.28) contrast(1.15);
+  transition: filter 0.25s ease;
+}
+.Icon:hover .Icon--icon {
+  filter: brightness(1.48) contrast(1.25);
+}
+
+/* =============== Bordes esquineros =============== */
+.Icon--border {
+  display: block;
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  background-color: #959292;
+  transition: 0.3s ease;
+}
+.Icon:hover .Icon--border {
+  background-color: var(--light);
+}
+.Icon--lt {
+  top: 0%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+}
+.Icon--lb {
+  bottom: 0%;
+  left: 0%;
+  transform: translate(-50%, 50%);
+}
+.Icon--rt {
+  top: 0%;
+  right: 0%;
+  transform: translate(50%, -50%);
+}
+.Icon--rb {
+  bottom: 0%;
+  right: 0%;
+  transform: translate(50%, 50%);
+}
+
+/* Tema claro opcional tal cual lo tenías */
+.Icon__light {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.01);
+}
+.Icon__light .Icon--border {
+  border-color: var(--grayL);
+}
+.Icon__light:hover .Icon--border {
+  border-color: var(--dark);
+}
+
+/* =============== Hover genérico mejorado =============== */
+.Icon:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 24px rgba(255, 136, 0, 0.12); /* toque sutil con tu naranja */
+}
+
+/* =============== Realce por marca (opcional) ===============
+   Usa una variable --brand para dibujar un “ring” y glow.
+   Si no defines --brand, no hace nada extra.
+*/
+.Icon::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  box-shadow: 0 0 0 0 var(--brand, transparent);
+  transition: box-shadow 0.25s ease;
+  pointer-events: none;
+}
+.Icon:hover::before {
+  /* ring + glow con el color de marca */
+  box-shadow: 0 0 0 2px
+      color-mix(in srgb, var(--brand, transparent) 70%, transparent),
+    0 0 18px color-mix(in srgb, var(--brand, transparent) 35%, transparent);
+}
+
+/* ====== Modificadores por marca (añádelos donde uses Icon) ======
+   Ejemplos:
+   - GitHub:  blanco/negro
+   - LinkedIn: #0A66C2
+   - Resume/File: usa tu naranja principal
+*/
+.Icon--github {
+  --brand: #ffffff;
+} /* o #000 si prefieres */
+.Icon--linkedin {
+  --brand: #0a66c2;
+}
+.Icon--resume {
+  --brand: var(--main);
+} /* combina con tu tema */
+
+/* =============== Responsive =============== */
+@media (max-width: 1500px) {
+  .Icon--icon {
+    width: 24px;
+    height: 24px;
+  }
+  .Icon {
+    padding: 10px;
+  }
+}
+/* === Brand Accent Colors (Glass + Glow) === */
+
+/* HTML */
+.Icon--html {
+  background: linear-gradient(
+    145deg,
+    rgba(227, 76, 38, 0.18),
+    rgba(255, 255, 255, 0.04)
+  );
+  border-color: rgba(227, 76, 38, 0.25);
+}
+.Icon--html img {
+  filter: drop-shadow(0 0 6px rgba(227, 76, 38, 0.45));
+}
+
+/* CSS */
+.Icon--css {
+  background: linear-gradient(
+    145deg,
+    rgba(38, 77, 228, 0.18),
+    rgba(255, 255, 255, 0.04)
+  );
+  border-color: rgba(38, 77, 228, 0.25);
+}
+.Icon--css img {
+  filter: drop-shadow(0 0 6px rgba(38, 77, 228, 0.45));
+}
+
+/* JavaScript */
+.Icon--javascript {
+  background: linear-gradient(
+    145deg,
+    rgba(247, 223, 30, 0.18),
+    rgba(255, 255, 255, 0.04)
+  );
+  border-color: rgba(247, 223, 30, 0.25);
+}
+.Icon--javascript img {
+  filter: drop-shadow(0 0 6px rgba(247, 223, 30, 0.45));
+}
+
+/* TypeScript */
+.Icon--typescript {
+  background: linear-gradient(
+    145deg,
+    rgba(49, 120, 198, 0.18),
+    rgba(255, 255, 255, 0.04)
+  );
+  border-color: rgba(49, 120, 198, 0.25);
+}
+.Icon--typescript img {
+  filter: drop-shadow(0 0 6px rgba(49, 120, 198, 0.45));
+}
+
+/* React */
+.Icon--react {
+  background: linear-gradient(
+    145deg,
+    rgba(97, 218, 251, 0.18),
+    rgba(255, 255, 255, 0.04)
+  );
+  border-color: rgba(97, 218, 251, 0.25);
+}
+.Icon--react img {
+  filter: drop-shadow(0 0 6px rgba(97, 218, 251, 0.45));
+}
+
+/* Redux */
+.Icon--redux {
+  background: linear-gradient(
+    145deg,
+    rgba(118, 74, 188, 0.18),
+    rgba(255, 255, 255, 0.04)
+  );
+  border-color: rgba(118, 74, 188, 0.25);
+}
+.Icon--redux img {
+  filter: drop-shadow(0 0 6px rgba(118, 74, 188, 0.45));
+}
+
+/* Firebase */
+.Icon--firebase {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 202, 40, 0.18),
+    rgba(255, 255, 255, 0.04)
+  );
+  border-color: rgba(255, 202, 40, 0.25);
+}
+.Icon--firebase img {
+  filter: drop-shadow(0 0 6px rgba(255, 202, 40, 0.45));
+}
+
+/* Sass */
+.Icon--sass {
+  background: linear-gradient(
+    145deg,
+    rgba(207, 100, 154, 0.18),
+    rgba(255, 255, 255, 0.04)
+  );
+  border-color: rgba(207, 100, 154, 0.25);
+}
+.Icon--sass img {
+  filter: drop-shadow(0 0 6px rgba(207, 100, 154, 0.45));
+}
+
+/* === Hover Glow === */
+.Icon:hover {
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.08), 0 0 20px var(--main);
+  transform: translateY(-1px);
+  transition: all 0.25s ease;
+}

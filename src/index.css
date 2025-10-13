@@ -1,0 +1,159 @@
+:root {
+  /* Tipografía base */
+  --font-body: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Paleta */
+  --main: #ffa31a;
+  --gray: rgba(255, 255, 255, 0.6);
+  --grayL: rgba(0, 0, 0, 0.4);
+  --light: #f2f2f2;
+  --dark: #212121;
+
+  /* Fonts: Neue Machina family (still used for hero/title via vars) */
+  --NML: 'NeueMachina-Light';
+  --NMR: 'NeueMachina-Regular';
+  --NMU: 'NeueMachina-Ultrabold';
+  --NML-I: 'NeueMachina-Light-Italic';
+  --NMR-I: 'NeueMachina-Regular-Italic';
+  --NMU-I: 'NeueMachina-Ultrabold-Italic';
+
+  color: rgba(255, 255, 255, 0.9);
+  background-color: var(--dark);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* App shells */
+html,
+body {
+  background-color: var(--dark);
+}
+
+body {
+  background: radial-gradient(circle at center, #1a1a1a 0%, #0d0d0d 100%);
+  color: var(--light);
+  overflow-x: hidden;
+  overflow-y: scroll;
+  font-family: var(
+    --NMR
+  ); /* keep NM Regular unless you switch to Inter Variable */
+}
+
+@font-face {
+  font-family: 'NeueMachina-Light';
+  src: url('./assets/neue-machina/NeueMachina-Light.otf') format('opentype');
+}
+@font-face {
+  font-family: 'NeueMachina-Regular';
+  src: url('./assets/neue-machina/NeueMachina-Regular.otf') format('opentype');
+}
+@font-face {
+  font-family: 'NeueMachina-Ultrabold';
+  src: url('./assets/neue-machina/NeueMachina-Ultrabold.otf') format('opentype');
+}
+@font-face {
+  font-family: 'NeueMachina-Light-Italic';
+  src: url('./assets/neue-machina/NeueMachina-Light-Italic.otf')
+    format('opentype');
+}
+@font-face {
+  font-family: 'NeueMachina-Regular-Italic';
+  src: url('./assets/neue-machina/NeueMachina-Regular-Italic.otf')
+    format('opentype');
+}
+@font-face {
+  font-family: 'NeueMachina-Ultrabold-Italic';
+  src: url('./assets/neue-machina/NeueMachina-Ultrabold-Italic.otf')
+    format('opentype');
+}
+
+/* Lenis helpers */
+html.lenis {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Shell sizes */
+main {
+  width: 100%;
+}
+main > * {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* App shells only (no forcing of sections) */
+html,
+body,
+#root,
+main {
+  background-color: var(--dark);
+  background: var(--dark);
+}
+
+/* ----------------------------
+   GLOBAL TYPOGRAPHY REFINEMENTS
+-----------------------------*/
+
+/* Slight global bump for readability */
+body {
+  font-size: 19px; /* was 18px */
+  line-height: 1.7;
+  letter-spacing: 0.2px;
+}
+
+/* Headings keep tight rhythm.
+   (Your hero h1 size comes from component CSS; we leave it unchanged.) */
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2.2rem;
+  font-family: var(--NMU);
+}
+
+h3 {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+/* Paragraphs */
+p {
+  font-size: 1.08rem; /* slightly larger than before */
+  font-weight: 300;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+.project--links a:nth-child(2):hover {
+  filter: brightness(1.2);
+  box-shadow: 0 0 10px rgba(255, 153, 0, 0.6);
+}

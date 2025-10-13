@@ -1,0 +1,174 @@
+.about {
+  height: 100vh;
+  padding: 60px 102px;
+  position: relative;
+  background-color: var(--light);
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  overflow: hidden;
+}
+
+/* Light section background */
+.about {
+  position: relative; /* so BackgroundLines positions correctly */
+  background-color: var(--light);
+  color: var(--dark);
+}
+
+/* Grid lines darker-on-light */
+.about .backgroundLines--line {
+  border-left: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+/* Thin divider with header */
+.about::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* ====== GRID ====== */
+.about--grid {
+  padding-top: 140px;
+  display: grid;
+  flex-grow: 1;
+  grid-template-columns: 4fr 1fr 1fr 1fr 1fr 3fr;
+  grid-template-areas:
+    'bio bio bio bio . .'
+    '. . title . detail detail'
+    'marquee marquee marquee marquee marquee marquee';
+  row-gap: 30px;
+}
+
+.about--grid .about--bio {
+  grid-area: bio;
+}
+.about--grid .about--title {
+  grid-area: title;
+}
+.about--grid .about--detail {
+  grid-area: detail;
+}
+
+.about--grid .about--marquee {
+  grid-area: marquee;
+  overflow: visible;
+  min-height: fit-content;
+}
+
+/* ====== HEADLINE (left big sentence) ====== */
+.about--grid .about--bio h2 {
+  color: #000;
+  font-family: var(--NMR);
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: -2.24px;
+  text-transform: uppercase;
+}
+
+.about--grid .about--bio h2 .sec {
+  color: var(--main);
+  font-family: var(--NMR-I);
+}
+
+/* ====== BACKGROUND MARQUEE TEXT ====== */
+.about--grid .about--marquee h1 {
+  color: #d6dbde; /* mucho más claro */
+  font-size: max(80px, 10vw);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: -8px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0.85;
+}
+
+.about--grid .about--marquee h1 span {
+  margin: 0 0.3ch;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (min-width: 1850px) {
+  .about {
+    gap: 80px;
+  }
+  .about--grid {
+    grid-template-columns: 5fr 1fr 2fr 3fr;
+    grid-template-areas:
+      'bio . . .'
+      '. . title detail'
+      'marquee marquee marquee marquee';
+    row-gap: 20px;
+  }
+}
+
+@media (max-width: 1500px) {
+  .about {
+    padding: 40px 60px;
+    gap: 30px;
+  }
+  .about--grid {
+    padding-top: 100px;
+  }
+  .about--grid .about--bio h2 {
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 700px) {
+  .about {
+    padding: 20px;
+    gap: 10px;
+    height: fit-content;
+    justify-content: normal;
+    align-items: normal;
+  }
+  .about--grid {
+    padding-top: 70px;
+    display: flex;
+    flex-direction: column;
+  }
+  .about--grid .about--bio h2 {
+    font-size: 36px;
+  }
+}
+
+/* ======================================================
+   FINAL OVERRIDES ESPECÍFICOS (sin duplicados)
+   ====================================================== */
+
+/* 1) Label “02 // ABOUT” — más oscuro y un poco más grande */
+.about .about--title h3.theme--text--dark {
+  color: #1f1f1f !important; /* gris más oscuro */
+  font-size: 19px !important; /* sube el tamaño */
+  letter-spacing: 1px;
+  font-weight: 600;
+  opacity: 0.95;
+}
+
+/* 2) Párrafo derecha (“I’m Angel Reyes…”) — más grande y más oscuro */
+.about .about--detail p.theme--detail--dark {
+  color: #3e3e3e !important; /* más oscuro que #444 */
+  font-size: 20px !important; /* sube el tamaño */
+  line-height: 1.7;
+  opacity: 0.95;
+}
+
+/* 3) Texto gigante animado (“ABOUT ANGEL REYES”) — claro */
+.about .about--marquee h1 {
+  color: #d6dbde !important; /* claro y elegante */
+  opacity: 0.85 !important;
+}
+
+/* 4) (opcional) Si en algún sitio global forzaste color oscuro en About,
+      asegúrate de NO tener una regla genérica como:
+      .about h1, .about h2, .about h3, .about p { color: var(--dark) !important; }
+   Esa regla mata los matices. Ya la hemos eliminado en este archivo. */

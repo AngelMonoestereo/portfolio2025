@@ -1,0 +1,224 @@
+/* ========= WorkCard ========= */
+.workCard {
+  grid-column: span 1;
+  margin-top: clamp(28px, 4vw, 72px);
+}
+
+/* cabecera (PERSONAL / YEAR) */
+.workCard--head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+.workCard--head h3 {
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+  opacity: 0.7;
+  letter-spacing: 0.4px;
+}
+
+/* línea separadora */
+.workCard--line {
+  width: 100%;
+  border-bottom: 1px solid #fff;
+  opacity: 0.18;
+  margin: 18px 0 8px;
+}
+
+/* =======================================
+   BODY: 2 columnas (texto | imagen)
+   title, desc, links, tags -> izquierda
+   image -> derecha
+======================================= */
+.workCard--body {
+  display: grid;
+  grid-template-columns: 1.15fr minmax(320px, 600px);
+  grid-template-areas:
+    'title image'
+    'desc  image'
+    'links image'
+    'tags  image';
+  column-gap: clamp(20px, 4vw, 64px);
+  row-gap: clamp(10px, 1.8vw, 18px);
+  align-items: start;
+}
+
+/* mapear áreas a los elementos existentes */
+.workCard--body h1 {
+  grid-area: title;
+}
+.workCard--body p {
+  grid-area: desc;
+}
+.project--links {
+  grid-area: links;
+}
+.project--tech {
+  grid-area: tags;
+}
+
+/* la imagen viene dentro de un <span> wrapper */
+.workCard--body > span {
+  grid-area: image;
+  justify-self: center;
+  display: block;
+}
+
+/* ====== Título (izquierda) ====== */
+.workCard--body h1 {
+  position: static !important;
+  mix-blend-mode: normal !important;
+  margin: 0;
+  color: var(--light);
+  font-size: clamp(32px, 4.5vw, 64px);
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  text-align: left;
+  max-width: 28ch;
+  overflow-wrap: anywhere;
+}
+
+/* ====== Descripción (izquierda) ====== */
+.workCard--body p {
+  position: static !important;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: var(--NMR);
+  font-size: clamp(1.05rem, 0.6vw + 0.95rem, 1.25rem);
+  line-height: 1.9;
+  max-width: 60ch;
+}
+
+/* ====== Imagen (derecha) ====== */
+.workCard--body img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+/* ====== Links (izquierda, debajo del texto) ====== */
+.project--links {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-self: start;
+  margin-top: 6px;
+}
+
+.project--links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-size: clamp(0.92rem, 0.25vw + 0.86rem, 1rem);
+  padding: 10px 16px;
+  border-radius: 999px;
+  transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.2s ease,
+    filter 0.2s ease, background 0.2s ease, border-color 0.2s ease,
+    color 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  color: var(--light);
+  background: transparent;
+  opacity: 0.95;
+}
+
+.project--links a:hover {
+  transform: translateY(-1px);
+  opacity: 1;
+}
+
+/* GitHub: outline claro */
+.project--links a:first-child {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.96);
+  border-color: rgba(255, 255, 255, 0.55);
+}
+.project--links a:first-child:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Live: naranja por defecto */
+.project--links a:nth-child(2) {
+  background: var(--main);
+  color: #111;
+  border-color: var(--main);
+}
+.project--links a:nth-child(2):hover {
+  filter: brightness(1.08);
+  box-shadow: 0 0 10px rgba(255, 153, 0, 0.55);
+}
+
+/* ====== Tags (izquierda) ====== */
+.project--tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin-top: 8px;
+  justify-self: start;
+}
+.project--tech li {
+  font-size: clamp(0.78rem, 0.2vw + 0.72rem, 0.9rem);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  padding: 6px 12px;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* =======================================
+   Responsive (stack)
+======================================= */
+@media (max-width: 1200px) {
+  .workCard--body {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .workCard--body img {
+    max-width: 92vw;
+    justify-self: center;
+  }
+
+  .workCard--title,
+  .workCard--desc,
+  .project--links,
+  .project--tech {
+    max-width: 92vw;
+    text-align: left;
+  }
+
+  .workCard--title {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 700px) {
+  .workCard--head h3 {
+    font-size: 12px;
+  }
+
+  .workCard--body h1 {
+    font-size: clamp(28px, 8vw, 40px);
+  }
+
+  .workCard--body p {
+    font-size: clamp(0.98rem, 1.4vw + 0.8rem, 1.08rem);
+  }
+}
+
+.workCard--title {
+  grid-area: title;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: keep-all;
+  text-align: left;
+}

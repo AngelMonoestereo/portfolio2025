@@ -1,0 +1,61 @@
+.techCard {
+  grid-column: span 1;
+}
+
+.techCard h3 {
+  margin-top: 2rem;
+  color: #fff;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%; /* 20px */
+  letter-spacing: -0.8px;
+}
+
+.techCard p {
+  margin-top: 1rem;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%; /* 22.4px */
+  opacity: 0.6;
+}
+
+@media (max-width: 1500px) {
+  .techCard h3 {
+    margin-top: 1rem;
+    font-size: 16px;
+  }
+
+  .techCard p {
+    margin-top: 0.5rem;
+    font-size: 14px;
+  }
+}
+
+/* ----------------------------
+   TECH STACK ICONS & LABELS
+-----------------------------*/
+
+.techCard img,
+.workCard img {
+  width: 64px; /* increase from default 40px or 48px */
+  height: 64px;
+  margin-bottom: 12px;
+  object-fit: contain;
+}
+
+.techCard h3,
+.workCard h3 {
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+}
+
+.techCard p,
+.workCard p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.85;
+  max-width: 45ch;
+}

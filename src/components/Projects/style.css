@@ -1,0 +1,108 @@
+/* ============ Projects ============ */
+.projects {
+  background-color: var(--dark);
+  color: var(--light);
+  padding: 100px 102px;
+  position: relative;
+}
+
+.projects--grid {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+/* ===== Header: title left + blurb right ===== */
+.projects--header {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.projects--title {
+  margin-right: auto; /* empuja el blurb a la derecha */
+}
+
+/* 👇 Baja el párrafo bajo el título */
+.projects--blurb {
+  max-width: 420px;
+  font-size: 17px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.72);
+  margin-top: clamp(20px, 2.2vw, 36px); /* más separación del título */
+}
+
+/* ===== Works container ===== */
+.projects--grid--content {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+/* Contenedor de cards centrado */
+.projects--grid--content--works {
+  display: flex;
+  flex-direction: column;
+  gap: 120px; /* espacio entre cards */
+  max-width: 1200px; /* ancho cómodo */
+  width: 100%;
+  margin: 0 auto; /* centra */
+}
+
+/* Footer detail (si se usa) */
+.projects--grid--detail {
+  margin-top: 80px; /* mueve más abajo si lo reactivas */
+  text-align: right;
+  opacity: 0.85;
+}
+.projects--grid--detail p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  max-width: 52ch;
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 1200px) {
+  .projects {
+    padding: 80px 60px;
+  }
+  .projects--grid--content--works {
+    gap: 100px;
+    max-width: 92vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .projects {
+    padding: 60px 20px;
+  }
+  .projects--header {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .projects--blurb {
+    max-width: 100%;
+    margin-top: 16px; /* en móvil un poquito menos */
+  }
+  .projects--grid--content--works {
+    gap: 84px;
+    max-width: 92vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .workCard {
+    flex-direction: column; /* en vez de row */
+    align-items: flex-start;
+  }
+
+  .workCard--body {
+    text-align: left;
+  }
+
+  .workCard--body img {
+    width: 100%;
+    height: auto;
+  }
+}

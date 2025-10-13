@@ -1,0 +1,110 @@
+/* =========================
+   THEME TOKENS / TITLES
+   ========================= */
+
+/* Section Title tokens (e.g., ABOUT // PROJECTS) */
+.theme--text--dark,
+.theme--text {
+  font-size: 17px; /* was 15px */
+  font-style: normal;
+  font-weight: 500; /* was 400 */
+  line-height: 140%; /* was 130% */
+  text-transform: uppercase;
+  color: var(--light);
+  font-family: var(--NMR);
+  white-space: nowrap;
+}
+
+.theme--text span.hash {
+  color: var(--gray);
+  margin: 0 1ch;
+}
+
+/* Dark variant (used on light sections) */
+.theme--text--dark {
+  color: var(--dark);
+}
+
+.theme--text--dark span {
+  color: var(--grayL);
+}
+
+/* Paragraph / detail text */
+.theme--detail--dark,
+.theme--detail {
+  font-family: var(--NMR);
+  font-size: 20px; /* was 18px */
+  color: var(--light);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%; /* was 140% */
+  opacity: 0.8; /* was 0.6 */
+}
+
+/* Dark variant on light bg */
+.theme--detail--dark {
+  color: var(--dark);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1500px) {
+  .theme--detail--dark,
+  .theme--detail {
+    font-size: 17px; /* was 14px */
+  }
+  .theme--text--dark,
+  .theme--text {
+    font-size: 16px; /* was 14px */
+  }
+}
+
+/* =========================
+   SECTION SPACING
+   ========================= */
+
+section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+@media (max-width: 900px) {
+  section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+
+/* =========================
+   TECH STACK ICONS (HTML5, etc.)
+   ========================= */
+/* Add className="techIcons" on the container that wraps your stack logos */
+.techIcons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: center;
+}
+
+.techIcons img,
+.techIcons svg {
+  width: 64px; /* larger logos */
+  height: 64px;
+  object-fit: contain;
+}
+
+@media (min-width: 1200px) {
+  .techIcons img,
+  .techIcons svg {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+/* If your labels live next to icons */
+.techIcons .label,
+.techIcons span,
+.techIcons p {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}

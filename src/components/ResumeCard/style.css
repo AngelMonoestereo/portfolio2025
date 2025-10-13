@@ -1,0 +1,138 @@
+/* CARD WRAPPER */
+.resumeCard {
+  width: 100%;
+}
+
+/* subtle divider that animates but doesn't affect layout height */
+.resume--line {
+  height: 1px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.16);
+  margin: 28px 0 20px;
+}
+
+/* LAYOUT
+   3 columns: company/role | bullets | date
+   minmax + min-width:0 prevent overflow pushing columns */
+.resumeCard--body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 2.1fr) minmax(160px, 0.9fr);
+  gap: 28px;
+  align-items: start;
+}
+
+/* allow text to wrap properly in all 3 areas */
+.resumeCard--body > * {
+  min-width: 0;
+}
+
+/* LEFT: COMPANY / ROLE */
+.resumeCard--body--left h4 {
+  /* company */
+  font-size: clamp(1.05rem, 0.5vw + 0.95rem, 1.25rem);
+  line-height: 1.25;
+  color: #fff;
+  margin: 0 0 6px;
+  font-weight: 600;
+}
+
+.resumeCard--body--left p {
+  /* role */
+  font-size: clamp(0.95rem, 0.4vw + 0.85rem, 1.05rem);
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+/* CENTER: BULLETS (FadeList renders a UL) */
+.resumeCard--body--center ul {
+  margin: 0;
+  padding-left: 1.15rem; /* nice bullet indent */
+}
+
+.resumeCard--body--center li {
+  font-size: clamp(1rem, 0.32vw + 0.95rem, 1.12rem); /* ↑ bigger */
+  line-height: 1.75; /* ↑ readable */
+  color: rgba(255, 255, 255, 0.92); /* ↑ darker */
+  margin-bottom: 10px;
+}
+
+/* RIGHT: DATE */
+.resumeCard--body--right h4 {
+  text-align: right;
+  font-size: clamp(0.95rem, 0.4vw + 0.85rem, 1.05rem);
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  white-space: nowrap; /* keep the range on one line when possible */
+}
+
+/* ======= RESPONSIVE ======= */
+
+/* Tablet: give bullets more room, keep date compact */
+@media (max-width: 1100px) {
+  .resumeCard--body {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr) minmax(120px, 0.8fr);
+    gap: 24px;
+  }
+}
+
+/* Mobile: stack vertically in logical order */
+@media (max-width: 760px) {
+  .resumeCard--body {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .resumeCard--body--right h4 {
+    text-align: left; /* date goes left on small screens */
+  }
+
+  .resume--line {
+    margin: 22px 0 16px;
+  }
+}
+/* === BULLETS: reemplaza los marcadores nativos por unos custom ==== */
+.resumeCard--body--center ul {
+  list-style: none; /* sin marker nativo */
+  margin: 0;
+  padding-left: 0; /* limpiamos indent */
+}
+
+.resumeCard--body--center li {
+  display: flex;
+  align-items: flex-start; /* texto arriba, bullet alineado al inicio */
+  gap: 12px; /* espacio entre bullet y texto */
+  margin-bottom: 10px;
+  /* CONTRASTE: más oscuro que antes */
+  color: rgba(255, 255, 255, 0.96);
+  font-size: clamp(1.02rem, 0.36vw + 0.95rem, 1.14rem);
+  line-height: 1.7;
+}
+
+/* el bullet redondo */
+.resumeCard--body--center li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  margin-top: 0.58em; /* centra el punto con el primer renglón */
+  flex: 0 0 6px; /* no se estira */
+  opacity: 0.95;
+}
+
+/* Opcional: listas anidadas (por si las usas en el futuro) */
+.resumeCard--body--center li ul {
+  margin-top: 6px;
+  padding-left: 18px;
+}
+.resumeCard--body--center li ul li::before {
+  width: 5px;
+  height: 5px;
+  opacity: 0.9;
+}
+
+/* === Mejora de contraste solo para descripciones === */
+.resumeCard--body--center li {
+  color: rgba(255, 255, 255, 0.96) !important; /* antes 0.75–0.85 */
+}
