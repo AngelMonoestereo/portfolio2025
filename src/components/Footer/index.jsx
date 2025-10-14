@@ -63,13 +63,42 @@ export default function Footer() {
     return { ok: true }
   }
 
-  const sendEmail = async () => {
-    const v = validate()
-    if (!v.ok) {
-      setSendStatus({ processed: true, variant: "error", message: v.msg })
-      timeoutAlert()
-      return
-    }
+  const sendEmail = () => {
+  const v = validate()
+  if (!v.ok) {
+    setSendStatus({ processed: true, variant: "error", message: v.msg })
+    timeoutAlert()
+    return
+  }
+
+  const formEl = document.createElement("form")
+  formEl.method = "POST"
+  formEl.action = "https://formsubmit.co/el/vusadi" // <-- Usas el que te dieron
+
+  Object.entries(form).forEach(([key, value]) => {
+    const input = document.createElement("input")
+    input.type = "hidden"
+    input.name = key
+    input.value = value
+    formEl.appendChild(input)
+  })
+
+  const redirect = document.createElement("input")
+  redirect.type = "hidden"
+  redirect.name = "_next"
+  redirect.value = window.location.href
+  formEl.appendChild(redirect)
+
+  const captcha = document.createElement("input")
+  captcha.type = "hidden"
+  captcha.name = "_captcha"
+  captcha.value = "false"
+  formEl.appendChild(captcha)
+
+  document.body.appendChild(formEl)
+  formEl.submit()
+}
+
 
     setIsSending(true)
     try {
