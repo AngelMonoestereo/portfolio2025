@@ -71,10 +71,15 @@ export default function Footer() {
     return
   }
 
+  // Mostrar estado de envío
+  setIsSending(true)
+
+  // Crear formulario temporal
   const formEl = document.createElement("form")
   formEl.method = "POST"
-  formEl.action = "https://formsubmit.co/el/vusadi" // <-- Usas el que te dieron
+  formEl.action = "https://formsubmit.co/el/vusadi" // ✅ Usa tu endpoint real
 
+  // Agregar campos
   Object.entries(form).forEach(([key, value]) => {
     const input = document.createElement("input")
     input.type = "hidden"
@@ -83,43 +88,32 @@ export default function Footer() {
     formEl.appendChild(input)
   })
 
+  // Redirección opcional (evita cambiar de página)
   const redirect = document.createElement("input")
   redirect.type = "hidden"
   redirect.name = "_next"
   redirect.value = window.location.href
   formEl.appendChild(redirect)
 
+  // Desactivar CAPTCHA de FormSubmit
   const captcha = document.createElement("input")
   captcha.type = "hidden"
   captcha.name = "_captcha"
   captcha.value = "false"
   formEl.appendChild(captcha)
 
+  // Agregar y enviar
   document.body.appendChild(formEl)
   formEl.submit()
+
+  // Limpiar y mostrar éxito
+  setIsSending(false)
+  setSendStatus({ processed: true, variant: "success", message: "Message sent successfully!" })
+  setForm({ name: "", email: "", message: "" })
+  setTouched({ name: false, email: false, message: false })
+  timeoutAlert()
 }
 
-
-    setIsSending(true)
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      })
-      if (!res.ok) throw new Error("Request failed")
-
-      setIsSending(false)
-      setSendStatus({ processed: true, variant: "success", message: "Message sent! I’ll reply soon." })
-      setForm({ name: "", email: "", message: "" })
-      setTouched({ name: false, email: false, message: false })
-    } catch (err) {
-      console.error(err)
-      setIsSending(false)
-      setSendStatus({ processed: true, variant: "error", message: "Couldn’t send. Please try again." })
-    }
-    timeoutAlert()
-  }
 
   return (
     <footer ref={ref} className="footer" id="contact">
