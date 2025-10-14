@@ -128,11 +128,6 @@
     gap: 20px;
   }
 
-  .resume--grid--detail--pic {
-    width: 60px;
-    height: 60px;
-  }
-
   .resume--grid--detail--data {
     padding: 0px;
     display: flex;

@@ -11,8 +11,7 @@ import ScrambleText from "../ScrambleText"
 import ResumeCard from "../ResumeCard"
 import Icon from "../Icon"
 
-// assets
-import ProfilePic from "../../assets/Images/Profile pic.png"
+// asset
 import githubIcon from "../../assets/Icon/github.svg"
 import linkedinIcon from "../../assets/Icon/linkedin.svg"
 import fileIcon from "../../assets/Icon/file.svg"
