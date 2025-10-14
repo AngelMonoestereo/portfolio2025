@@ -2,10 +2,10 @@
 
 // === Image imports ===
 import portfolio from "../../assets/Images/portfolio.png";
-import skinstric from "../../assets/Images/skinstric.png";
 import nft from "../../assets/Images/nft.png";
-import vinylrecord from "../../assets/Images/vinylrecord.png";
-import movieapi from "../../assets/Images/movieapi.png";
+import skinstric from "../../assets/Images/Skinstric.png";
+import vinylrecord from "../../assets/Images/VinylRecord.png";
+import movieapi from "../../assets/Images/movieAPI.png";
 import youtubeclone from "../../assets/Images/youtubeclone.png";
 
 // === Project data ===
