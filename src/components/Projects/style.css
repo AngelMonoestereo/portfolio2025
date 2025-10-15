@@ -26,12 +26,20 @@
 }
 
 /* 👇 Baja el párrafo bajo el título */
+/* .projects--blurb {
+  max-width: 100%;
+  margin-top: clamp(20px, 2.2vw, 36px);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.78); /* más separación del título */
+
 .projects--blurb {
   max-width: 420px;
-  font-size: 17px;
+  font-size: 21px;
   line-height: 1.75;
   color: rgba(255, 255, 255, 0.72);
-  margin-top: clamp(20px, 2.2vw, 36px); /* más separación del título */
+  margin-top: clamp(20px, 2.2vw, 36px);
+  margin-left: clamp(80px, 15vw, 160px); /* ⬅️ Esta línea lo empuja al centro */
 }
 
 /* ===== Works container ===== */
@@ -112,15 +120,6 @@ h2,
 h3,
 .projects--title,
 .workCard--body h3 {
-  word-break: break-word;
-  overflow-wrap: break-word;
-  white-space: normal;
-}
-
-.projects--title,
-.projects--blurb,
-.workCard--body h3,
-.workCard--body p {
   word-break: break-word;
   overflow-wrap: break-word;
   white-space: normal;

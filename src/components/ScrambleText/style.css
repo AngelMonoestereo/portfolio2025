@@ -1,5 +1,25 @@
 .scrambleText {
   position: relative;
+  display: inline-block;
+}
+
+.scrambleText--base {
+  visibility: hidden; /* mantiene el espacio pero no se ve */
+  white-space: pre-wrap;
+  display: inline-block;
+}
+
+.scrambleText--overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: pre-wrap;
+  pointer-events: none;
+  color: inherit;
+  display: inline-block;
+}
+/* .scrambleText {
+  position: relative;
   overflow: hidden;
   display: inline-block;
   overflow: hidden;
@@ -15,10 +35,6 @@
   line-height: inherit;
 }
 
-.scrambleText > span:not(.scrambleText--overlay) {
-  opacity: 0;
-  display: inline-flex;
-}
 .scrambleText .scrambleText--overlay {
   position: absolute;
   left: 0;
@@ -31,4 +47,4 @@
   max-height: 1em;
   line-height: inherit;
   font-size: inherit;
-}
+} */

@@ -1,6 +1,6 @@
 export const SITE = {
   NAME: "Angel Reyes",
-  ROLE: "Frontend Developer",
+  ROLE: "",
   INTRO:
     "Hi! I’m Angel — a passionate frontend developer who loves turning ideas into sleek, interactive experiences. I thrive on solving complex challenges and pushing my craft forward every day. My goal is to build technology that inspires, empowers, and makes a real difference in people’s lives.",
   LINKS: {

@@ -43,8 +43,8 @@ export const PROJECTS = [
       "A record search tool using the Discogs API to find vinyls, prices, and artist details.",
     tags: ["React", "API", "Styled Components"],
     image: vinylrecord,
-    live: "https://vinylpour.vercel.app",
-    code: "https://github.com/angelmonoestereo/vinylfinder",
+    live: "https://react-record-store-api.vercel.app",
+    code: "https://github.com/AngelMonoestereo/React-Record-Store-API.git",
   },
   {
     title: "Movie Finder",
@@ -52,8 +52,8 @@ export const PROJECTS = [
       "Movie search app built with TMDB API showing trending movies, trailers, and ratings.",
     tags: ["React", "API", "Styled Components"],
     image: movieapi,
-    live: "https://movieapi.vercel.app",
-    code: "https://github.com/angelmonoestereo/movieapp",
+    live: "https://react-movies-clone-v2.vercel.app/",
+    code: "https://github.com/AngelMonoestereo/react-movies-clone-v2.git",
   },
   {
     title: "YouTube Clone",
@@ -61,7 +61,7 @@ export const PROJECTS = [
       "Video streaming clone inspired by YouTube with search, playback, and responsive layout.",
     tags: ["React", "CSS", "API"],
     image: youtubeclone,
-    live: "https://ytclone.vercel.app",
-    code: "https://github.com/angelmonoestereo/youtubeclone",
+    live: "https://youtube-clone-react-v5l4.vercel.app",
+    code: "https://github.com/AngelMonoestereo/youtube-clone-react.git",
   },
 ];

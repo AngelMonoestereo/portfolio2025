@@ -124,7 +124,6 @@ main {
 body {
   font-size: 19px; /* was 18px */
   line-height: 1.7;
-  letter-spacing: 0.2px;
 }
 
 /* Headings keep tight rhythm.
@@ -156,4 +155,109 @@ p {
 .project--links a:nth-child(2):hover {
   filter: brightness(1.2);
   box-shadow: 0 0 10px rgba(255, 153, 0, 0.6);
+}
+
+* {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ===============================
+   FIX: Prevent last-letter clipping
+   =============================== */
+
+h1,
+h2,
+h3 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+  hyphens: auto;
+  padding-right: 2px; /* evita corte visual de última letra */
+}
+
+/* Asegura que el header y los enlaces tengan espacio */
+header,
+.navbar,
+.nav-links,
+.logo-container,
+.header-title {
+  overflow: visible;
+  min-width: 0;
+}
+
+/* Si hay títulos o texto dentro de header */
+header h3,
+header h2 {
+  padding-right: 3px;
+  margin-right: 0;
+  letter-spacing: 0.2px; /* leve separación */
+}
+
+/* Si el texto se alinea muy justo */
+.header,
+.navbar,
+footer,
+section {
+  padding-inline-end: 2px;
+}
+
+.scrambleText {
+  display: inline-block;
+  padding-right: 4px;
+  white-space: normal;
+  word-break: break-word;
+  overflow: visible !important;
+  line-height: 1.2;
+}
+
+.scrambleText > s(.scrambleText--overlay) {
+  display: inline-block;
+  opacity: 1; /* o controla esto con tu animación */
+}
+
+/* ===============================
+   FIX: Prevent last-letter clipping
+   =============================== */
+
+h1,
+h2,
+h3 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+  hyphens: auto;
+  padding-right: 2px; /* evita corte visual de última letra */
+}
+
+/* Asegura que el header y los enlaces tengan espacio */
+header,
+.navbar,
+.nav-links,
+.logo-container,
+.header-title {
+  overflow: visible;
+  min-width: 0;
+}
+
+/* Si hay títulos o texto dentro de header */
+header h3,
+header h2 {
+  padding-right: 3px;
+  margin-right: 0;
+  letter-spacing: 0.2px; /* leve separación */
+}
+
+/* Si el texto se alinea muy justo */
+.header,
+.navbar,
+footer,
+section {
+  padding-inline-end: 2px;
 }

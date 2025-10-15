@@ -77,7 +77,7 @@ export default function Footer() {
   // Crear formulario temporal
   const formEl = document.createElement("form")
   formEl.method = "POST"
-  formEl.action = "https://formsubmit.co/el/vusadi" // ✅ Usa tu endpoint real
+  formEl.action = "https://formsubmit.co/angelreyes.dev@gmail.com" // ✅ Usa tu endpoint real
 
   // Agregar campos
   Object.entries(form).forEach(([key, value]) => {
@@ -88,19 +88,31 @@ export default function Footer() {
     formEl.appendChild(input)
   })
 
-  // Redirección opcional (evita cambiar de página)
-  const redirect = document.createElement("input")
-  redirect.type = "hidden"
-  redirect.name = "_next"
-  redirect.value = window.location.href
-  formEl.appendChild(redirect)
+  // Hidden fields para configuración extra
+const subject = document.createElement("input")
+subject.type = "hidden"
+subject.name = "_subject"
+subject.value = "New message from portfolio!"
+formEl.appendChild(subject)
 
-  // Desactivar CAPTCHA de FormSubmit
-  const captcha = document.createElement("input")
-  captcha.type = "hidden"
-  captcha.name = "_captcha"
-  captcha.value = "false"
-  formEl.appendChild(captcha)
+const template = document.createElement("input")
+template.type = "hidden"
+template.name = "_template"
+template.value = "box"
+formEl.appendChild(template)
+
+const captcha = document.createElement("input")
+captcha.type = "hidden"
+captcha.name = "_captcha"
+captcha.value = "false"
+formEl.appendChild(captcha)
+
+const redirect = document.createElement("input")
+redirect.type = "hidden"
+redirect.name = "_next"
+redirect.value = window.location.href
+formEl.appendChild(redirect)
+
 
   // Agregar y enviar
   document.body.appendChild(formEl)
