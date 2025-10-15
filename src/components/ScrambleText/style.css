@@ -1,12 +1,12 @@
 .scrambleText {
   position: relative;
   display: inline-block;
+  white-space: pre-wrap; /* Permite saltos de línea si es necesario */
 }
 
-.scrambleText--base {
-  visibility: hidden; /* mantiene el espacio pero no se ve */
-  white-space: pre-wrap;
-  display: inline-block;
+.scrambleText > span {
+  visibility: hidden;
+  white-space: pre-wrap; /* Asegura que el texto se mantenga dentro de su contenedor */
 }
 
 .scrambleText--overlay {
@@ -16,35 +16,5 @@
   white-space: pre-wrap;
   pointer-events: none;
   color: inherit;
-  display: inline-block;
+  width: 100%; /* Ocupa todo el ancho del contenedor base */
 }
-/* .scrambleText {
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-  overflow: hidden;
-  vertical-align: text-top;
-}
-
-.scrambleText--con {
-  position: relative;
-  z-index: 10;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  line-height: inherit;
-}
-
-.scrambleText .scrambleText--overlay {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.scrambleText--con span {
-  max-height: 1em;
-  line-height: inherit;
-  font-size: inherit;
-} */
