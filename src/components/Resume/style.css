@@ -68,6 +68,7 @@
 
 .resume--grid--detail--data--skills h4 {
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .resume--grid--detail--data--skills li {
