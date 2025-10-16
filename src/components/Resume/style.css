@@ -3,7 +3,7 @@
   padding: 60px 102px;
   background-color: var(--dark);
   position: relative;
-  padding-top: 180px;
+  padding-top: 80px;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -33,11 +33,11 @@
 .resume--grid ul li *,
 .resume--grid ul li {
   color: #fff;
-  font-size: 14px;
+  font-size: 16px; /* antes 14px */
   font-style: normal;
   font-weight: 500;
-  line-height: 140%; /* 19.6px */
-  opacity: 0.6;
+  line-height: 160%; /* más aireado */
+  opacity: 0.85; /* antes 0.6: ahora más brillante */
 }
 
 .resume--grid--detail {
@@ -149,5 +149,14 @@
 
   .resume--grid--experience--head h4 {
     white-space: normal;
+  }
+}
+
+@media (max-width: 700px) {
+  .resume--grid ul li *,
+  .resume--grid ul li {
+    font-size: 15px;
+    line-height: 150%;
+    opacity: 1;
   }
 }

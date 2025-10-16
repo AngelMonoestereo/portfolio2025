@@ -1,8 +1,6 @@
 .fadeText {
   position: relative;
-  overflow: hidden;
   display: inline-block;
-  overflow: hidden;
   vertical-align: text-top;
 }
 
@@ -19,6 +17,7 @@
   opacity: 0;
   display: inline-flex;
 }
+
 .fadeText .fadeText--overlay {
   position: absolute;
   left: 0;

@@ -101,19 +101,22 @@ return (
   <span className="scrambleText">
     <span className="scrambleText--base">{children}</span>
     <motion.span
-      initial="hidden"
-      animate={controls}
-      variants={textVariants}
-      ref={ref}
-      className="scrambleText--overlay"
-      onAnimationComplete={handleComplete}
-    >
-      {text.split("").map((char, index) => (
-        <motion.span key={index} variants={charVariants}>
-          {char}
-        </motion.span>
-      ))}
-    </motion.span>
+  initial="hidden"
+  animate={controls}
+  variants={textVariants}
+  ref={ref}
+  className="scrambleText--overlay"
+  onAnimationComplete={handleComplete}
+>
+  <span className="scrambleText--word">
+    {text.split("").map((char, index) => (
+      <motion.span key={index} variants={charVariants}>
+        {char}
+      </motion.span>
+    ))}
+  </span>
+</motion.span>
+
   </span>
 )
 

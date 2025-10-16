@@ -261,3 +261,11 @@ footer,
 section {
   padding-inline-end: 2px;
 }
+
+p,
+.about--detail,
+.fadeText,
+.hideText {
+  white-space: normal !important;
+  word-break: break-word !important;
+}

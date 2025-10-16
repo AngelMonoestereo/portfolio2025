@@ -2,7 +2,7 @@
 .projects {
   background-color: var(--dark);
   color: var(--light);
-  padding: 100px 102px;
+  padding: 100px 102px 1px;
   position: relative;
 }
 
@@ -53,7 +53,7 @@
 .projects--grid--content--works {
   display: flex;
   flex-direction: column;
-  gap: 120px; /* espacio entre cards */
+  gap: 10px; /* espacio entre cards */
   max-width: 1200px; /* ancho cómodo */
   width: 100%;
   margin: 0 auto; /* centra */
@@ -122,5 +122,13 @@ h3,
 .workCard--body h3 {
   word-break: break-word;
   overflow-wrap: break-word;
+}
+
+/* Solo los títulos de los proyectos van sin saltos */
+.workCard--body h3 {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  flex-wrap: wrap; /* opcional si quieres que sea responsive */
   white-space: normal;
 }

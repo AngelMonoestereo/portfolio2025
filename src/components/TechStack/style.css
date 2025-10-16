@@ -13,7 +13,7 @@
   flex-grow: 1;
   display: grid;
   grid-template-columns: 5fr 1fr 1fr 1fr 3fr;
-  grid-template-areas: "heading . title . detail";
+  grid-template-areas: 'heading . title . detail';
 }
 
 .techStackSec--head--heading {
@@ -81,13 +81,8 @@
   }
 
   .techStackSec--grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-  }
-
-  .techStackSec--grid > * {
-    flex-basis: 40%;
-    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
   }
 }

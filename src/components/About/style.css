@@ -6,12 +6,11 @@
   display: flex;
   flex-direction: column;
   gap: 50px;
-  overflow: hidden;
 }
 
 /* Light section background */
 .about {
-  position: relative; /* so BackgroundLines positions correctly */
+  position: relative;
   background-color: var(--light);
   color: var(--dark);
 }
@@ -21,7 +20,6 @@
   border-left: 1px solid rgba(0, 0, 0, 0.07);
 }
 
-/* Thin divider with header */
 .about::before {
   content: '';
   position: absolute;
@@ -32,7 +30,6 @@
   background: rgba(0, 0, 0, 0.08);
 }
 
-/* ====== GRID ====== */
 .about--grid {
   padding-top: 140px;
   display: grid;
@@ -48,9 +45,11 @@
 .about--grid .about--bio {
   grid-area: bio;
 }
+
 .about--grid .about--title {
   grid-area: title;
 }
+
 .about--grid .about--detail {
   grid-area: detail;
 }
@@ -61,7 +60,6 @@
   min-height: fit-content;
 }
 
-/* ====== HEADLINE (left big sentence) ====== */
 .about--grid .about--bio h2 {
   color: #000;
   font-family: var(--NMR);
@@ -78,9 +76,8 @@
   font-family: var(--NMR-I);
 }
 
-/* ====== BACKGROUND MARQUEE TEXT ====== */
 .about--grid .about--marquee h1 {
-  color: #d6dbde; /* mucho más claro */
+  color: #d6dbde;
   font-size: max(80px, 10vw);
   font-style: normal;
   font-weight: 400;
@@ -95,7 +92,6 @@
   margin: 0 0.3ch;
 }
 
-/* ====== RESPONSIVE ====== */
 @media (min-width: 1850px) {
   .about {
     gap: 80px;
@@ -140,35 +136,3 @@
     font-size: 36px;
   }
 }
-
-/* ======================================================
-   FINAL OVERRIDES ESPECÍFICOS (sin duplicados)
-   ====================================================== */
-
-/* 1) Label “02 // ABOUT” — más oscuro y un poco más grande */
-.about .about--title h3.theme--text--dark {
-  color: #1f1f1f !important; /* gris más oscuro */
-  font-size: 19px !important; /* sube el tamaño */
-  letter-spacing: 1px;
-  font-weight: 600;
-  opacity: 0.95;
-}
-
-/* 2) Párrafo derecha (“I’m Angel Reyes…”) — más grande y más oscuro */
-.about .about--detail p.theme--detail--dark {
-  color: #3e3e3e !important; /* más oscuro que #444 */
-  font-size: 20px !important; /* sube el tamaño */
-  line-height: 1.7;
-  opacity: 0.95;
-}
-
-/* 3) Texto gigante animado (“ABOUT ANGEL REYES”) — claro */
-.about .about--marquee h1 {
-  color: #d6dbde !important; /* claro y elegante */
-  opacity: 0.85 !important;
-}
-
-/* 4) (opcional) Si en algún sitio global forzaste color oscuro en About,
-      asegúrate de NO tener una regla genérica como:
-      .about h1, .about h2, .about h3, .about p { color: var(--dark) !important; }
-   Esa regla mata los matices. Ya la hemos eliminado en este archivo. */

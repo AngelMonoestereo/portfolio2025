@@ -124,10 +124,15 @@ export default function Header() {
         className="header--bottom"
       >
         <div>
-          <h3>
-            <ScrambleText shuffle delay={4}>intro</ScrambleText>{" "}
-            <span className="header--hash">{"//"}</span>
-          </h3>
+      <motion.div className="header--right">
+  <h3>
+    <span className="header--hash">{"//"}</span>{" "}
+    <ScrambleText shuffle delay={2.9}>scroll</ScrambleText>{" "}
+    <span className="header--hash">{"//"}</span>
+  </h3>
+</motion.div>
+
+
           <p className="theme--detail">
             <ScrambleText shuffle delay={4}>
               Hi! I’m Angel — a passionate frontend developer who loves turning ideas into sleek, interactive experiences.

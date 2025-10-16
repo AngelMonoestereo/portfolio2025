@@ -18,7 +18,7 @@
   letter-spacing: 0.4px;
 }
 
-/* línea separadora */
+/* lÃ­nea separadora */
 .workCard--line {
   width: 100%;
   border-bottom: 1px solid #fff;
@@ -44,32 +44,13 @@
   align-items: start;
 }
 
-/* mapear áreas a los elementos existentes */
+/* mapear Ã¡reas a los elementos existentes */
 .workCard--body h1 {
   grid-area: title;
-}
-.workCard--body p {
-  grid-area: desc;
-}
-.project--links {
-  grid-area: links;
-}
-.project--tech {
-  grid-area: tags;
-}
-
-/* la imagen viene dentro de un <span> wrapper */
-.workCard--body > span {
-  grid-area: image;
-  justify-self: center;
-  display: block;
-}
-
-/* ====== Título (izquierda) ====== */
-.workCard--body h1 {
   position: static !important;
   mix-blend-mode: normal !important;
   margin: 0;
+  margin-bottom: clamp(12px, 2.5vw, 24px);
   color: var(--light);
   font-size: clamp(32px, 4.5vw, 64px);
   font-weight: 500;
@@ -81,10 +62,11 @@
   overflow-wrap: anywhere;
 }
 
-/* ====== Descripción (izquierda) ====== */
 .workCard--body p {
+  grid-area: desc;
   position: static !important;
   margin: 0;
+  margin-top: 0;
   color: rgba(255, 255, 255, 0.92);
   font-family: var(--NMR);
   font-size: clamp(1.05rem, 0.6vw + 0.95rem, 1.25rem);
@@ -92,18 +74,26 @@
   max-width: 60ch;
 }
 
-/* ====== Imagen (derecha) ====== */
-.workCard--body img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
+/* la imagen viene dentro de un <span> wrapper */
+.workCard--body > span {
+  grid-area: image;
+  justify-self: center;
   display: block;
-  border-radius: 10px;
-  margin-bottom: 1rem;
 }
 
-/* ====== Links (izquierda, debajo del texto) ====== */
+/* Imagen (derecha) */
+.workCard--body img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3; /* o 4/3 si prefieres */
+  object-fit: cover;
+  border-radius: 0.5rem; /* opcional */
+  display: block;
+}
+
+/* Links */
 .project--links {
+  grid-area: links;
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
@@ -133,7 +123,7 @@
   opacity: 1;
 }
 
-/* GitHub: outline claro */
+/* GitHub */
 .project--links a:first-child {
   background: transparent;
   color: rgba(255, 255, 255, 0.96);
@@ -144,7 +134,7 @@
   border-color: rgba(255, 255, 255, 0.7);
 }
 
-/* Live: naranja por defecto */
+/* Live */
 .project--links a:nth-child(2) {
   background: var(--main);
   color: #111;
@@ -155,8 +145,9 @@
   box-shadow: 0 0 10px rgba(255, 153, 0, 0.55);
 }
 
-/* ====== Tags (izquierda) ====== */
+/* Tags */
 .project--tech {
+  grid-area: tags;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -173,9 +164,7 @@
   color: rgba(255, 255, 255, 0.88);
 }
 
-/* =======================================
-   Responsive (stack)
-======================================= */
+/* Responsive */
 @media (max-width: 1200px) {
   .workCard--body {
     display: flex;
@@ -215,10 +204,36 @@
   }
 }
 
+/* Asegura que los títulos estén uno debajo del otro, no colapsen */
+.workCard--body h3 {
+  display: inline-block;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  margin-bottom: 0.25em;
+}
+
+/* Hace que cada palabra comience en una nueva línea */
+.workCard--body h3 span {
+  display: block;
+}
+
+/* ===== Consistencia de títulos ===== */
+
 .workCard--title {
-  grid-area: title;
-  white-space: nowrap;
-  overflow-wrap: normal;
-  word-break: keep-all;
-  text-align: left;
+  color: var(--light); /* asegúrate de que sea visible en el fondo oscuro */
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1em;
+  white-space: normal;
+}
+
+.workCard--title-word {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
 }

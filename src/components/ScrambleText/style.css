@@ -1,12 +1,14 @@
 .scrambleText {
   position: relative;
-  display: inline-block;
-  white-space: pre-wrap; /* Permite saltos de línea si es necesario */
+  display: inline;
+  white-space: normal;
+  word-break: break-word;
+  line-height: inherit;
 }
 
-.scrambleText > span {
+.scrambleText--base {
   visibility: hidden;
-  white-space: pre-wrap; /* Asegura que el texto se mantenga dentro de su contenedor */
+  white-space: pre-wrap;
 }
 
 .scrambleText--overlay {
@@ -16,5 +18,9 @@
   white-space: pre-wrap;
   pointer-events: none;
   color: inherit;
-  width: 100%; /* Ocupa todo el ancho del contenedor base */
+}
+
+.header--scroll .scrambleText--word {
+  white-space: nowrap;
+  display: inline-block;
 }

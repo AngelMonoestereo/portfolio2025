@@ -1,8 +1,6 @@
 .hideText {
   position: relative;
-  overflow: hidden;
   display: inline;
-  overflow: hidden;
 }
 
 .hideText--con {
@@ -27,15 +25,14 @@
   height: 100%;
 }
 
-.hideText--wrapper{
-  overflow: hidden;
+.hideText--wrapper {
   display: inline-block;
   max-height: 1em;
   height: 1em;
   margin-right: 0.4ch;
 }
 
-.hideText .hideText--overlay span{
+.hideText .hideText--overlay span {
   position: relative;
 }
 

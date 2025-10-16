@@ -92,14 +92,19 @@ header .header--hash {
 }
 
 .header--right {
+  position: absolute; /* Asegura que se mantenga en su lugar */
   right: 0;
   top: 0;
-  justify-content: center;
   height: 100%;
-  width: fit-content;
   writing-mode: vertical-lr;
+  text-align: center;
+  letter-spacing: 0.15em;
+  line-height: 1.2;
+  white-space: nowrap;
+  font-size: 14px;
+  color: #ccc;
+  opacity: 0.8;
   pointer-events: none;
-  opacity: 0;
   animation: scrollAnim 4s infinite forwards;
   animation-delay: 10s;
 }
@@ -267,4 +272,29 @@ header .header--bottom p {
 /* Ensure the hero area uses the dark gray (not pure black) */
 header {
   background-color: var(--dark);
+}
+
+/* 🔧 SCROLL TEXT — centrado vertical y sin duplicados */
+.header--right {
+  position: absolute;
+  right: 30px; /* Ajusta si lo quieres más al borde */
+  top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-lr;
+  text-align: center;
+  letter-spacing: 0.15em;
+  line-height: 1.2;
+  white-space: nowrap;
+  font-size: 14px;
+  color: #ccc;
+  opacity: 0.8;
+  pointer-events: none;
+  animation: scrollAnim 4s infinite forwards;
+  animation-delay: 10s;
+}
+
+/* Evita romper “scroll” */
+.header--right .scrambleText--word {
+  white-space: nowrap;
+  display: inline-block;
 }

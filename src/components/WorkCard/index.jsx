@@ -70,11 +70,22 @@ export default function WorkCard({ item }) {
         )}
 
         {/* Título */}
-        <h1 className="workCard--title" >
-          <HideText controls={controls} delay={delay}>
-            {title}
-          </HideText>
-        </h1>
+<h1 className="workCard--title">
+  {title.split(" ").map((word, index) => (
+    <motion.span
+      key={index}
+      className="workCard--title-word"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.1 * index, duration: 0.5 }}
+    >
+      {word}
+    </motion.span>
+  ))}
+</h1>
+
+
+
 
         {/* Descripción */}
         {desc && (
