@@ -30,14 +30,13 @@
   margin-top: 24px;
 }
 
-.resume--grid ul li *,
 .resume--grid ul li {
   color: #fff;
-  font-size: 16px; /* antes 14px */
+  font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 160%; /* más aireado */
-  opacity: 0.85; /* antes 0.6: ahora más brillante */
+  line-height: 160%;
+  opacity: 0.85;
 }
 
 .resume--grid--detail {
@@ -154,7 +153,6 @@
 }
 
 @media (max-width: 700px) {
-  .resume--grid ul li *,
   .resume--grid ul li {
     font-size: 15px;
     line-height: 150%;
