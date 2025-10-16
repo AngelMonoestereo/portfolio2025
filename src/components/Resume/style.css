@@ -149,6 +149,8 @@
 
   .resume--grid--experience--head h4 {
     white-space: normal;
+    font-size: 1.4rem;
+    line-height: 1.5;
   }
 }
 

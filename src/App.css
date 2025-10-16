@@ -111,9 +111,12 @@ section {
 
 h2,
 h3,
-.projects--title,
 .workCard--body h3 {
   word-break: break-word;
   overflow-wrap: break-word;
+}
+
+.projects--title {
   white-space: normal;
+  word-break: break-word;
 }
