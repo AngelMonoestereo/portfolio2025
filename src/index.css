@@ -269,3 +269,12 @@ p,
   white-space: normal !important;
   word-break: break-word !important;
 }
+
+h1,
+h2,
+h3,
+h4 {
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}

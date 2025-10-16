@@ -21,8 +21,9 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 200%; /* 22.4px */
-  white-space: nowrap;
+  line-height: 200%;
+  white-space: normal; /* ✅ CAMBIO AQUÍ */
+  word-break: break-word; /* ✅ ASEGURA AJUSTE DE LÍNEA */
 }
 
 .resume--grid ul {
@@ -59,6 +60,7 @@
   line-height: 100%; /* 32px */
   letter-spacing: -1.28px;
   white-space: nowrap;
+  word-break: break-word;
 }
 
 .resume--grid--detail--data--name h4 {
