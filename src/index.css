@@ -270,11 +270,13 @@ p,
   word-break: break-word !important;
 }
 
+/* Al final de index.css */
 h1,
 h2,
 h3,
 h4 {
-  white-space: normal;
-  word-break: break-word;
-  overflow-wrap: break-word;
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+  line-height: 1.4;
 }
