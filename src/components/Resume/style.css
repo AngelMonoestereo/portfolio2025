@@ -178,3 +178,33 @@
     opacity: 1;
   }
 }
+
+h1,
+h2,
+h3,
+h4,
+p,
+span,
+li,
+strong,
+b {
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+  line-height: 1.4 !important;
+  hyphens: none !important;
+}
+
+.resume--grid--detail--data h4,
+.resume--grid--experience--head h4,
+.resume--grid h4 {
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+  line-height: 1.4 !important;
+}
+
+/* DEBUG: Forzar fuente legible para evitar saltos raros */
+* {
+  font-family: Arial, sans-serif !important;
+}
