@@ -208,3 +208,11 @@ b {
 * {
   font-family: Arial, sans-serif !important;
 }
+
+@media (max-width: 768px) {
+  .resume--grid--title {
+    align-self: flex-start;
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+}

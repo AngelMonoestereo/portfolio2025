@@ -86,3 +86,18 @@
     gap: 20px;
   }
 }
+
+@media (max-width: 768px) {
+  .tech--stack--title {
+    margin-bottom: 16px;
+  }
+
+  .tech--stack--subtitle {
+    margin-top: 8px;
+  }
+
+  .tech--stack--container {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
