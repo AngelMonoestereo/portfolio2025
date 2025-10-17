@@ -100,17 +100,30 @@
 .resume--grid--experience--body {
   padding-top: 50px;
 }
-
-.resume--grid h4 {
-  border: 1px dashed red;
+.resume--name {
+  display: flex;
+  gap: 10px;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: -1.28px;
+  color: #fff;
+  white-space: nowrap;
 }
 
-.resume--grid--experience--head {
-  border: 1px dashed blue;
+.resume--name span {
+  white-space: nowrap;
 }
 
-.resume--grid {
-  border: 1px solid yellow;
+.resume--grid--experience--head h3 {
+  margin-top: 10px; /* o más si lo ves muy pegado */
+}
+
+.resume--role {
+  margin-top: 12px; /* ajusta este valor a tu gusto */
+  text-align: left;
+  font-size: 18px;
+  opacity: 0.85;
 }
 
 @media (max-width: 700px) {

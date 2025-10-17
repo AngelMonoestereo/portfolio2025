@@ -54,9 +54,11 @@ export default function Resume() {
         <div className="resume--grid--detail">
           <div className="resume--grid--detail--data">
             <div className="resume--grid--detail--data--name">
-              <h2>
-                <ParaWriting stagger={0.08} text={"Angel Reyes"} />
-              </h2>
+              <h2 className="resume--name">
+  <span>Angel</span>
+  <span>Reyes</span>
+</h2>
+
               <h4 className="resume--role">
                 <ScrambleText shuffle delay={0.2}>Frontend Developer</ScrambleText>
               </h4>
