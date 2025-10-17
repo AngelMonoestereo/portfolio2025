@@ -16,7 +16,7 @@ export const PROJECTS = [
       "Personal portfolio showcasing selected projects and experience as a frontend developer.",
     tags: ["React", "Vite", "Framer Motion"],
     image: portfolio,
-    live: "https://angelportfolio.vercel.app",
+    live: "https://areyes-portfolio.vercel.app",
     code: "https://github.com/angelmonoestereo/portfolio",
   },
   {
