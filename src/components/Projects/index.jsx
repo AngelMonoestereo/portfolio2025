@@ -46,7 +46,7 @@ export default function Projects() {
           className="projects--grid--title"
         >
           <h3 className="theme--text">
-            <ScrambleText shuffle delay={0.5}>03</ScrambleText>{" "}
+            <ScrambleText shuffle delay={0.5}>04</ScrambleText>{" "}
             <span className="hash">{"//"}</span>{" "}
             <ScrambleText shuffle delay={0.5}>Projects</ScrambleText>
           </h3>

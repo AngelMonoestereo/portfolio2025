@@ -39,7 +39,7 @@
   line-height: 1.75;
   color: rgba(255, 255, 255, 0.72);
   margin-top: clamp(20px, 2.2vw, 36px);
-  margin-left: clamp(80px, 15vw, 160px); /* ⬅️ Esta línea lo empuja al centro */
+  margin-left: 0; /* ⬅️ Esta línea lo empuja al centro */
 }
 
 /* ===== Works container ===== */
@@ -131,4 +131,12 @@ h3,
   gap: 8px;
   flex-wrap: wrap; /* opcional si quieres que sea responsive */
   white-space: normal;
+}
+
+.projects--grid--title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 20px; /* 🔁 ajusta este valor hasta que visualmente se vea bien alineado */
+  z-index: 2;
 }
