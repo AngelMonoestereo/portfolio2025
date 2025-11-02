@@ -33,7 +33,6 @@ header .header--hash {
 .header--top,
 .header--video,
 .header--center,
-.header--right,
 .header--menuBtn,
 .header--bottom {
   padding: 60px 102px;
@@ -91,22 +90,37 @@ header .header--hash {
   height: 50vh;
 }
 
+/* Consolidated right-side scroll indicator */
+/* Reemplaza/pegue en src/components/Header/style.css */
 .header--right {
-  position: absolute; /* Asegura que se mantenga en su lugar */
-  right: 0;
-  top: 0;
-  height: 100%;
-  writing-mode: vertical-lr;
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%); /* sólo centrado vertical, SIN rotate */
+  writing-mode: vertical-rl; /* coloca letras en columna (de arriba hacia abajo) */
+  text-orientation: upright; /* mantiene la forma normal de las letras */
+  -webkit-text-orientation: upright;
+  display: block; /* evita flex que cambia el flujo */
   text-align: center;
-  letter-spacing: 0.15em;
-  line-height: 1.2;
-  white-space: nowrap;
-  font-size: 14px;
-  color: #ccc;
-  opacity: 0.8;
   pointer-events: none;
+  white-space: nowrap; /* evita quiebres dentro de cada palabra/overlay */
+  font-size: 14px;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  color: #ccc;
+  opacity: 0.9;
+  z-index: 999;
   animation: scrollAnim 4s infinite forwards;
   animation-delay: 10s;
+}
+
+/* Asegura que los spans internos no reciban transforms inesperados */
+.header--right h3,
+.header--right h3 * {
+  transform: none !important;
+  display: inline-block;
+  white-space: nowrap;
+  line-height: 1;
 }
 
 @keyframes scrollAnim {
@@ -126,6 +140,18 @@ header .header--right h3 .header--hash {
 header .header--bottom p {
   margin-top: 24px;
   max-width: 36ch;
+}
+
+/* Ensure the hero area uses the dark gray (not pure black) */
+header {
+  background-color: var(--dark);
+}
+
+/* Evita romper “scroll” */
+.header--right .scrambleText--word,
+.header--right .scrambleText--overlay {
+  white-space: nowrap;
+  display: inline-block;
 }
 
 /* =========================
@@ -209,7 +235,6 @@ header .header--bottom p {
   .header--top,
   .header--video,
   .header--center,
-  .header--right,
   .header--menuBtn,
   .header--bottom {
     padding: 40px 60px;
@@ -231,7 +256,6 @@ header .header--bottom p {
   .header--top,
   .header--video,
   .header--center,
-  .header--right,
   .header--menuBtn,
   .header--bottom {
     padding: 20px;
@@ -268,33 +292,41 @@ header .header--bottom p {
     justify-content: center;
     align-items: center;
   }
+  /* Hide the scroll indicator on mobile */
+  .header--right {
+    display: none !important;
+  }
 }
-/* Ensure the hero area uses the dark gray (not pure black) */
-header {
-  background-color: var(--dark);
-}
-
-/* 🔧 SCROLL TEXT — centrado vertical y sin duplicados */
-.header--right {
-  position: absolute;
-  right: 30px; /* Ajusta si lo quieres más al borde */
-  top: 50%;
-  transform: translateY(-50%);
-  writing-mode: vertical-lr;
-  text-align: center;
-  letter-spacing: 0.15em;
-  line-height: 1.2;
-  white-space: nowrap;
-  font-size: 14px;
-  color: #ccc;
-  opacity: 0.8;
-  pointer-events: none;
-  animation: scrollAnim 4s infinite forwards;
-  animation-delay: 10s;
+/* ===== Blink lento para el indicador SCROLL =====
+   Añadir al final del archivo (o dentro de la sección .header--right/.scroll-static) */
+@keyframes slowBlink {
+  0% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-/* Evita romper “scroll” */
-.header--right .scrambleText--word {
-  white-space: nowrap;
+/* Aplicar la animación a la clase que contiene "SCROLL" */
+.scroll-static {
+  /* si ya tienes otras reglas, sólo añade 'animation' */
+  animation: slowBlink 4s ease-in-out infinite; /* duración = 4s (ajusta abajo) */
+  /* mantener layout estable */
   display: inline-block;
+  will-change: opacity;
+}
+
+/* Opciones para usuarios que prefieren reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-static {
+    animation: none;
+    opacity: 1;
+  }
 }

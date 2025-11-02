@@ -91,6 +91,7 @@
   grid-area: experience;
 }
 
+/* Header de la columna "experience" (desktop) */
 .resume--grid--experience--head {
   display: flex;
   justify-content: space-between;
@@ -100,6 +101,7 @@
 .resume--grid--experience--body {
   padding-top: 50px;
 }
+
 .resume--name {
   display: flex;
   gap: 10px;
@@ -126,6 +128,7 @@
   opacity: 0.85;
 }
 
+/* ------------------ MOBILE (<=700px) ------------------ */
 @media (max-width: 700px) {
   .resume {
     padding: 20px;
@@ -155,14 +158,27 @@
     gap: 30px;
   }
 
+  /* Corregido: ahora la cabecera de experience es column (no column-reverse) */
   .resume--grid--experience--head {
-    flex-direction: column-reverse;
+    display: flex;
+    flex-direction: column;
     gap: 30px;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 
+  /* Aseguramos que cada hijo ocupe todo el ancho y no colapse */
   .resume--grid--experience--head > * {
     width: 100%;
     min-width: 0;
+  }
+
+  /* Forzamos que los títulos (p.ej. el "05 // RESUME") estén arriba */
+  /* En tu markup el índice suele estar en un h4; esta regla lo coloca primero en móviles */
+  .resume--grid--experience--head h4 {
+    order: -1 !important;
+    margin: 0 0 8px 0 !important;
+    align-self: flex-start !important;
   }
 
   .resume--grid--experience--head h4 {
@@ -179,6 +195,7 @@
   }
 }
 
+/* Reglas globales para evitar saltos/overflows raros en títulos/textos */
 h1,
 h2,
 h3,
@@ -203,16 +220,28 @@ b {
   overflow-wrap: break-word !important;
   line-height: 1.4 !important;
 }
-
-/* DEBUG: Forzar fuente legible para evitar saltos raros */
-* {
-  font-family: Arial, sans-serif !important;
-}
-
-@media (max-width: 768px) {
-  .resume--grid--title {
+@media (max-width: 700px) {
+  .resume--index {
+    margin: 0 0 12px 0;
+    font-size: 1.05rem;
     align-self: flex-start;
-    margin-top: 0;
-    margin-bottom: 12px;
+  }
+  .resume--grid--detail--data--name {
+    /* reduce gap si necesitas que el índice quede muy pegado */
+    gap: 8px;
   }
 }
+
+/* (Opcional) si ves problemas raros con transforms o overlays en móvil,
+   descomenta las siguientes reglas para forzar flujo normal:
+
+@media (max-width:700px) {
+  .resume--grid--experience--head,
+  .resume--grid--detail,
+  .resume--grid--detail--data {
+    position: static !important;
+    transform: none !important;
+    z-index: auto !important;
+  }
+}
+*/

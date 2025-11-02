@@ -2,7 +2,8 @@
 .projects {
   background-color: var(--dark);
   color: var(--light);
-  padding: 100px 102px 1px;
+  /* reducido el padding general para eliminar grandes espacios */
+  padding: 60px 60px 20px;
   position: relative;
 }
 
@@ -10,104 +11,100 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 40px; /* reducido desde 60px */
 }
 
 /* ===== Header: title left + blurb right ===== */
 .projects--header {
   display: flex;
   align-items: flex-start;
-  gap: 24px;
+  gap: 16px; /* reducido desde 24px */
 }
 
 .projects--title {
   margin-right: auto; /* empuja el blurb a la derecha */
-  margin-bottom: 24px;
+  margin-bottom: 12px; /* reducido desde 24px */
 }
 
 /* 👇 Baja el párrafo bajo el título */
-/* .projects--blurb {
-  max-width: 100%;
-  margin-top: clamp(20px, 2.2vw, 36px);
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
-  line-height: 1.75;
-  color: rgba(255, 255, 255, 0.78); /* más separación del título */
-
 .projects--blurb {
   max-width: 420px;
-  font-size: 21px;
-  line-height: 1.75;
+  font-size: 18px; /* ligeramente reducido para compactar */
+  line-height: 1.6; /* reduce espacio vertical */
   color: rgba(255, 255, 255, 0.72);
-  margin-top: clamp(20px, 2.2vw, 36px);
-  margin-left: 0; /* ⬅️ Esta línea lo empuja al centro */
+  margin-top: 12px; /* reducido */
+  margin-left: 0; /* mantiene alineación */
 }
 
 /* ===== Works container ===== */
 .projects--grid--content {
   display: flex;
   flex-direction: column;
-  gap: 80px;
+  gap: 48px; /* reducido desde 80px */
 }
 
 /* Contenedor de cards centrado */
 .projects--grid--content--works {
   display: flex;
   flex-direction: column;
-  gap: 10px; /* espacio entre cards */
-  max-width: 1200px; /* ancho cómodo */
+  gap: 40px; /* reducido desde 10/80 */
+  max-width: 1200px;
   width: 100%;
-  margin: 0 auto; /* centra */
+  margin: 0 auto;
 }
 
 /* Footer detail (si se usa) */
 .projects--grid--detail {
-  margin-top: 80px; /* mueve más abajo si lo reactivas */
+  margin-top: 40px; /* reducido desde 80px */
   text-align: right;
   opacity: 0.85;
 }
 .projects--grid--detail p {
-  font-size: 1.1rem;
-  line-height: 1.8;
+  font-size: 1.05rem;
+  line-height: 1.6;
   max-width: 52ch;
 }
 
 /* ============ Responsive ============ */
 @media (max-width: 1200px) {
   .projects {
-    padding: 80px 60px;
+    padding: 48px 48px;
   }
   .projects--grid--content--works {
-    gap: 100px;
+    gap: 64px;
     max-width: 92vw;
   }
 }
 
 @media (max-width: 900px) {
   .projects {
-    padding: 60px 20px;
+    padding: 36px 18px;
   }
   .projects--header {
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
   }
   .projects--blurb {
     max-width: 100%;
-    margin-top: 16px; /* en móvil un poquito menos */
+    margin-top: 8px;
   }
   .projects--grid--content--works {
-    gap: 84px;
+    gap: 36px;
     max-width: 92vw;
   }
 }
 
+/* Ajustes cards/móvil pequeño para evitar saltos grandes */
 @media screen and (max-width: 768px) {
   .workCard {
-    flex-direction: column; /* en vez de row */
+    flex-direction: column;
     align-items: flex-start;
+    gap: 12px;
   }
 
   .workCard--body {
     text-align: left;
+    padding: 8px 0;
   }
 
   .workCard--body img {
@@ -116,6 +113,7 @@
   }
 }
 
+/* Tipografía / quiebres */
 h2,
 h3,
 .projects--title,
@@ -129,21 +127,24 @@ h3,
   display: flex;
   flex-direction: row;
   gap: 8px;
-  flex-wrap: wrap; /* opcional si quieres que sea responsive */
+  flex-wrap: wrap;
   white-space: normal;
 }
 
+/* Título grande centrado en desktop (más compacto) */
 .projects--grid--title {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 20px; /* 🔁 ajusta este valor hasta que visualmente se vea bien alineado */
+  top: 12px; /* reducido desde 20px */
   z-index: 2;
 }
 
+/* Ajustes tablet/mobile del grid title */
 @media (max-width: 768px) {
   .projects--grid--title {
-    margin-bottom: 16px;
+    margin-bottom: 12px;
+    top: auto;
   }
 
   .projects--header {
@@ -153,6 +154,105 @@ h3,
   }
 
   .projects--title {
-    font-size: 24px;
+    font-size: 22px;
+  }
+}
+
+/* Móvil: neutralizamos posicionamiento y forzamos flujo (ya aplicado antes) */
+@media (max-width: 700px) {
+  section#projects
+    > div.projects--grid:nth-child(3)
+    > div.projects--grid--title:nth-child(1) {
+    position: static !important;
+    transform: none !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    margin-bottom: 8px !important;
+  }
+
+  section#projects > div.projects--grid:nth-child(3) .projects--header {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    align-items: stretch !important;
+  }
+
+  section#projects
+    > div.projects--grid:nth-child(3)
+    > div.projects--grid--title:nth-child(1)
+    > h3.theme--text {
+    order: -1 !important;
+    align-self: flex-end !important;
+    margin: 0 0 6px 0 !important;
+    white-space: nowrap !important;
+    position: static !important;
+    transform: none !important;
+    z-index: 50 !important;
+  }
+
+  section#projects > div.projects--grid:nth-child(3) .projects--title {
+    order: 0 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    white-space: normal !important;
+  }
+
+  /* compactar aún más en móviles */
+  .projects {
+    padding: 28px 12px 12px !important;
+  }
+  .projects--grid {
+    gap: 16px !important;
+  }
+  .projects--grid--content--works {
+    gap: 18px !important;
+  }
+  .projects--title {
+    margin-bottom: 6px !important;
+    font-size: 20px !important;
+  }
+  .projects--blurb {
+    margin-top: 6px !important;
+    font-size: 14px !important;
+    line-height: 1.45 !important;
+  }
+  .workCard {
+    gap: 8px !important;
+    padding-bottom: 8px !important;
+  }
+}
+
+/* pequeños ajustes globales */
+.projects .btn,
+.projects .chip,
+.projects button,
+.projects .projects--actions,
+.projects .Icon {
+  margin: 0 8px 8px 0;
+  padding: 8px 12px;
+}
+
+/* evitar saltos grandes en encabezados */
+h2,
+h3,
+h4,
+p {
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+/* Opción A: separar título y blurb (recomendado) */
+@media (max-width: 900px) {
+  .projects--title {
+    margin-bottom: 18px !important; /* aumentar separación bajo el título */
+    font-size: clamp(20px, 4.5vw, 28px) !important;
+    line-height: 1.04 !important;
+  }
+
+  .projects--blurb {
+    margin-top: 12px !important; /* respiración extra arriba del blurb */
+    font-size: clamp(14px, 3.2vw, 18px) !important;
+    line-height: 1.6 !important;
+    max-width: 95% !important;
   }
 }

@@ -136,3 +136,52 @@
     font-size: 36px;
   }
 }
+
+/* Ocultar marquee grande en móvil */
+@media (max-width: 700px) {
+  .about--grid .about--marquee {
+    display: none !important;
+  }
+}
+
+/* Force visible on desktop, hide only on small screens */
+.about--grid .about--marquee {
+  display: block !important;
+  opacity: 0.85;
+  pointer-events: none;
+  user-select: none;
+  font-size: max(80px, 10vw);
+  line-height: 100%;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+/* Hide only on mobile */
+@media (max-width: 700px) {
+  .about--grid .about--marquee {
+    display: none !important;
+  }
+}
+/* Fix marquee display: force spans to show full phrase and avoid clipping */
+.about--grid .about--marquee {
+  display: block !important;
+  width: 100%;
+  overflow: visible !important;
+  min-height: fit-content;
+}
+
+.about--grid .about--marquee h1 {
+  white-space: nowrap;
+  overflow: visible !important;
+  font-size: max(80px, 10vw); /* ya tenías esto, se asegura que se aplique */
+  letter-spacing: normal !important; /* evita cortes por letter-spacing extremo */
+}
+
+/* Cada repetición debe ser inline-block y tener espacio suficiente */
+.about--grid .about--marquee h1 span {
+  display: inline-block;
+  min-width: max-content; /* evita que el span se reduzca */
+  padding-right: 2ch; /* separador entre repeticiones */
+  margin: 0 0.5ch;
+  white-space: nowrap;
+}

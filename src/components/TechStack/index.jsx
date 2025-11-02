@@ -3,7 +3,6 @@ import "./style.css"
 import BackgroundLines from "../BackgroundLines"
 import TechCard from "../TechCard"
 import ScrambleText from "../ScrambleText"
-import ParaWriting from "../ParaWriting"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import techs from "../../constants/techs"
@@ -35,8 +34,9 @@ export default function TechStack() {
 
       <div className="techStackSec--head">
         <div className="techStackSec--head--heading">
+          {/* Render a single text node for the full heading to avoid wrapping/overlay issues */}
           <h2>
-            <ParaWriting stagger={0.08} text={"Tech-"} sec={"Stack"} />
+            TECH-<span className="sec">STACK</span>
           </h2>
         </div>
 
@@ -54,7 +54,9 @@ export default function TechStack() {
 
         <motion.div initial="hidden" animate={controls} variants={opacityVariant} transition={{ duration: 1, delay: 1 }} onAnimationComplete={() => handleComplete()} className="techStackSec--head--detail">
           <p className="theme--detail">
-            <ScrambleText delay={1}>Explore the technologies that define my craft: HTML5, CSS3, JavaScript, TypeScript, React, Redux, Firebase, and Sass. Each tool is carefully selected to create seamless, modern web experiences.</ScrambleText>
+            <ScrambleText delay={1}>
+              Explore the technologies that define my craft: HTML5, CSS3, JavaScript, TypeScript, React, Redux, Firebase, and Sass. Each tool is carefully selected to create seamless, modern web experiences.
+            </ScrambleText>
           </p>
         </motion.div>
       </div>

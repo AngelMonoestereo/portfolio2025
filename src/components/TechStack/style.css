@@ -55,38 +55,14 @@
 @media (max-width: 1500px) {
   .techStackSec {
     padding: 40px 60px;
-    padding-top: 140px;
+    padding-top: 40px;
   }
   .techStackSec--head--heading h2 {
     font-size: 42px;
   }
 }
 
-@media (max-width: 700px) {
-  .techStackSec {
-    padding: 20px;
-    padding-top: 90px;
-    height: fit-content;
-  }
-
-  .techStackSec--head {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding-bottom: 40px;
-  }
-
-  .techStackSec--head--heading h2 {
-    font-size: 36px;
-  }
-
-  .techStackSec--grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 20px;
-  }
-}
-
+/* Keep medium-specific rules (<=768) if present */
 @media (max-width: 768px) {
   .tech--stack--title {
     margin-bottom: 16px;
@@ -99,5 +75,137 @@
   .tech--stack--container {
     flex-direction: column;
     gap: 16px;
+  }
+}
+
+/* CONSERVATIVE MOBILE OVERRIDE (<=700px)
+   - single @media block, very small adjustments only
+   - DOES NOT hide backgroundLines or icons
+   - only reduces padding-top and gap so the H2 is visually higher
+*/
+@media (max-width: 700px) {
+  /* Section: keep height auto and reduce only the top padding */
+  .techStackSec {
+    height: auto !important;
+    min-height: 0 !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    padding-top: 24px !important; /* ajuste conservador: baja la sección hacia arriba */
+    padding-bottom: 18px !important;
+    gap: 12px !important;
+  }
+
+  /* Head: column flow, avoid it growing */
+  .techStackSec--head {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    align-items: flex-start !important;
+    flex: 0 0 auto !important;
+    flex-grow: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+  }
+
+  /* Keep index/subtitle above H2 but compact */
+  .techStackSec--head--title {
+    order: -1 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    z-index: 2 !important;
+  }
+  .techStackSec--head--title h3 {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    font-size: 13px !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+    color: var(--light) !important;
+    transform: none !important;
+  }
+
+  /* Heading smaller and minimal bottom spacing */
+  .techStackSec--head--heading {
+    order: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .techStackSec--head--heading h2 {
+    font-size: clamp(22px, 8.5vw, 34px) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -1px !important;
+    white-space: normal !important;
+    margin: 0 0 0.12rem 0 !important;
+    display: block !important;
+  }
+
+  /* Detail: keep it close to heading */
+  .techStackSec--head--detail {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    width: 100% !important;
+  }
+  .techStackSec--head--detail p,
+  .techStackSec--head--detail .theme--detail {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 16px !important;
+    line-height: 1.35 !important;
+    text-align: left !important;
+    max-width: 100% !important;
+  }
+
+  /* Grid adapt */
+  .techStackSec--grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)) !important;
+    gap: 20px !important;
+    margin-top: 8px !important;
+  }
+
+  /* Very conservative: do not hide visuals. If overlays still cause issues,
+     we'll target them individually after you confirm what's missing. */
+  .backgroundLines,
+  .backgroundLines--line,
+  .backgroundLines--line--glow,
+  .Icon--border {
+    display: block !important;
+    visibility: visible !important;
+  }
+}
+/* Intento seguro: forzar que H2 sea una fila y evitar wrap entre TECH- y STACK */
+@
+/* RESTAURAR la palabra "STACK" y evitar que el H2 sea recortado en móvil */
+@media (max-width: 700px) {
+  .techStackSec--head--heading h2 {
+    display: flex !important;
+    align-items: baseline !important;
+    gap: 6px !important;
+    white-space: nowrap !important;        /* mantener TECH- y STACK juntos */
+    flex-wrap: nowrap !important;
+    overflow: visible !important;          /* permitir que no se recorte */
+    text-overflow: clip !important;        /* desactivar ellipsis */
+    font-size: clamp(18px, 6.8vw, 30px) !important; /* más pequeña para que quepa */
+    line-height: 1 !important;
+  }
+
+  .techStackSec--head--heading h2 .sec {
+    display: inline-block !important;
+    visibility: visible !important;
+    color: var(--main) !important;
+    margin-left: 6px !important;
+    white-space: nowrap !important;
+  }
+
+  /* Evitar que hijos del h2 que vengan de componentes JS se comporten como bloques */
+  .techStackSec--head--heading h2 > * {
+    display: inline-block !important;
+    vertical-align: baseline !important;
   }
 }

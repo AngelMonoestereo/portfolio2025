@@ -4,7 +4,7 @@ import TextWriting from "../TextWriting"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import FadeText from "../FadeText"
-import HideText from "../HideText"
+// import HideText from "../HideText"
 
 export default function WorkCard({ item }) {
   const controls = useAnimation()
