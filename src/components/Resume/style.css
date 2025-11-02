@@ -245,3 +245,53 @@ b {
   }
 }
 */
+/* ===== Resume fixes (append at end) ===== */
+/* Evitar que títulos del resume rompan la última letra */
+section#resume .section-index,
+section#resume .section-title,
+section#resume h3,
+section#resume h2 {
+  white-space: nowrap !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+}
+
+/* Strengths: evitar solapamiento y compactar el gap hacia Experience */
+section#resume .strengths,
+section#resume .strengths ul {
+  margin: 0 !important;
+  padding-left: 20px !important; /* bullets alineados */
+  line-height: 1.6 !important; /* evita que las filas se sobrepongan */
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  column-break-inside: avoid;
+}
+
+/* Cada ítem separado y sin saltos raros */
+section#resume .strengths ul li {
+  display: list-item !important;
+  margin-bottom: 8px !important;
+  break-inside: avoid-column !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+}
+
+/* Menos espacio entre Strengths y Experience */
+section#resume .strengths {
+  margin-bottom: 8px !important;
+}
+section#resume .experience {
+  margin-top: 6px !important;
+  padding-top: 6px !important;
+}
+
+/* Ajuste general para evitar quiebres extraños en listas/títulos */
+section#resume li,
+section#resume p,
+section#resume h2,
+section#resume h3 {
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+}
