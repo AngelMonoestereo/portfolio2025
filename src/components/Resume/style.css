@@ -296,48 +296,74 @@ section#resume h3 {
   hyphens: none !important;
 }
 
-/* ===== FIX: Strengths - evitar solapamiento y compactar espacio hacia Experience ===== */
+/* ===== Resume: restore normal flow & fix strengths list ===== */
 
-/* Forzar que no use multi-column ni transforms que solapan texto */
-section#resume .strengths,
-section#resume .strengths ul {
-  column-count: 1 !important; /* si estaba usando columnas, deshabilita */
-  -webkit-column-count: 1 !important;
-  -moz-column-count: 1 !important;
-  margin: 0 !important;
-  padding-left: 20px !important;
-  line-height: 1.7 !important; /* elevar line-height para evitar solapamiento */
-  position: static !important;
+/* Revertir reglas globales de nowrap en resume (asegura texto normal) */
+section#resume h2,
+section#resume h3,
+section#resume p,
+section#resume li {
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
 }
 
-/* Cada li como elemento normal, sin transform ni posicionamiento absoluto */
+/* Strengths: comportamiento de lista seguro */
+/* Usar columnas solo en pantallas grandes y evitar solapamiento en móvil */
+section#resume .strengths {
+  margin: 0 0 8px 0 !important;
+  padding-left: 20px !important;
+  line-height: 1.7 !important;
+  column-count: 1 !important; /* mobile por defecto 1 */
+  -webkit-column-count: 1 !important;
+  -moz-column-count: 1 !important;
+  column-gap: 24px !important;
+}
+
+/* Habilitar 2 columnas en anchos mayores (ajusta breakpoint si hace falta) */
+@media (min-width: 900px) {
+  section#resume .strengths {
+    column-count: 2 !important;
+    -webkit-column-count: 2 !important;
+    -moz-column-count: 2 !important;
+  }
+}
+
+section#resume .strengths ul {
+  margin: 0 !important;
+  padding-left: 20px !important;
+}
+
+/* Cada li como bloque normal — evita transforms/position que solapan */
 section#resume .strengths ul li {
   display: list-item !important;
   position: static !important;
   transform: none !important;
-  margin: 0 0 8px 0 !important;
-  break-inside: auto !important;
+  margin: 0 0 10px 0 !important;
+  break-inside: avoid !important;
   word-break: normal !important;
   overflow-wrap: normal !important;
   z-index: auto !important;
   background: transparent !important;
 }
 
-/* Asegurar separación compacta entre Strengths y Experience */
+/* Espaciado entre Strengths y Experience */
 section#resume .strengths {
-  margin-bottom: 8px !important;
+  margin-bottom: 10px !important;
 }
 section#resume .experience {
-  margin-top: 6px !important;
+  margin-top: 8px !important;
   padding-top: 6px !important;
 }
 
-/* Neutralizar overlays/animaciones en resume que generen duplicados */
+/* Neutralizar overlays solo dentro del resume headings si las hay */
 section#resume .scrambleText,
 section#resume .scrambleText--overlay,
-section#resume .scrambleText * {
+section#resume .scrambleText--base {
   position: static !important;
   transform: none !important;
-  opacity: 1 !important;
   display: inline-block !important;
+  width: auto !important;
+  opacity: 1 !important;
 }

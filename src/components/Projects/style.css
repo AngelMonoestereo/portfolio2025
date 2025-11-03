@@ -291,31 +291,41 @@ section#projects .projects--grid--title h3.theme--text {
     padding-bottom: 8px !important;
   }
 }
-/* ===== FIX: evitar que "PROJECTS" se rompa en dos líneas ===== */
-section#projects .projects--grid--title h3.theme--text,
-section#projects .projects--grid--title {
+/* ===== Projects: index fix (specific & safe) ===== */
+/* Contenedor del índice (04 // PROJECTS) — usar flex para mantener // y label juntos */
+.projects--grid--title {
+  position: absolute; /* conserva comportamiento desktop */
+  left: 50%;
+  transform: translateX(-50%);
+  top: 12px;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  gap: 12px; /* espacio entre "04", "//" y "PROJECTS" */
+  white-space: normal; /* por defecto aquí (el nowrap se aplica al label solo) */
+}
+
+/* Solo el texto del label (la palabra PROJECTS) NO debe partir */
+.projects--grid--title h3.theme--text {
   white-space: nowrap !important;
   word-break: normal !important;
   overflow-wrap: normal !important;
-  hyphens: none !important;
-  display: inline-block !important; /* evita que el texto flexible haga wrap */
-  max-width: none !important;
-  width: auto !important;
-  letter-spacing: normal !important;
+  display: inline-block !important;
+  margin: 0;
+  padding: 0;
 }
 
-/* Si hay spans internos que animan/duplican texto (.scrambleText), neutralizarlos en producción */
-section#projects .scrambleText,
-section#projects .scrambleText--base,
-section#projects .scrambleText--overlay,
-section#projects .scrambleText * {
+/* Neutralizar overlays del scrambleText SOLO dentro del index, sin tocar el resto */
+.projects--grid--title .scrambleText,
+.projects--grid--title .scrambleText--overlay,
+.projects--grid--title .scrambleText--base {
   position: static !important;
-  display: inline-block !important;
   transform: none !important;
-  left: auto !important;
-  top: auto !important;
+  display: inline-block !important;
   width: auto !important;
   height: auto !important;
-  opacity: 1 !important; /* opcional: si overlay con opacity:0 causa reflow, pon 1 o 0 según necesites */
-  pointer-events: none !important;
+  left: auto !important;
+  top: auto !important;
+  opacity: 1 !important;
 }
