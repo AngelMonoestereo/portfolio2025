@@ -329,3 +329,23 @@ section#projects .projects--grid--title h3.theme--text {
   top: auto !important;
   opacity: 1 !important;
 }
+
+/* ===== Quick fix: restore normal spacing for project paragraphs (mobile safe) ===== */
+@media (max-width: 900px) {
+  /* Párrafos dentro de workCard / descripción de proyectos */
+  .projects--grid--content--works p,
+  .workCard--body p,
+  .projects p {
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    word-spacing: normal !important;
+    letter-spacing: normal !important;
+  }
+
+  /* Asegura que el index (04 // PROJECTS) mantenga separación con // */
+  .projects--grid--title {
+    gap: 8px !important;
+    align-items: center !important;
+  }
+}

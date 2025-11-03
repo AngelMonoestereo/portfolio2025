@@ -367,3 +367,47 @@ section#resume .scrambleText--base {
   width: auto !important;
   opacity: 1 !important;
 }
+/* ===== Quick fix: restore normal spacing for resume text & lists (mobile safe) ===== */
+@media (max-width: 900px) {
+  /* Párrafos generales del resume (descr, bullets, experience) */
+  section#resume p,
+  section#resume .workCard--body p,
+  section#resume .summary,
+  .resume p {
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    word-spacing: normal !important;
+    letter-spacing: normal !important;
+  }
+
+  /* Strengths: forzar una columna en mobile y spacing seguro */
+  section#resume .strengths,
+  section#resume .strengths ul {
+    column-count: 1 !important;
+    -webkit-column-count: 1 !important;
+    -moz-column-count: 1 !important;
+    display: block !important;
+    line-height: 1.7 !important;
+    margin: 0 0 10px 0 !important;
+    padding-left: 20px !important;
+  }
+
+  section#resume .strengths ul li {
+    display: list-item !important;
+    position: static !important;
+    transform: none !important;
+    margin-bottom: 8px !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    word-spacing: normal !important;
+    letter-spacing: normal !important;
+  }
+
+  /* Technical skills: en móvil pasar a columna simple para evitar "scatter" */
+  section#resume .technical-skills,
+  section#resume .technical-skills ul {
+    column-count: 1 !important;
+    display: block !important;
+  }
+}
