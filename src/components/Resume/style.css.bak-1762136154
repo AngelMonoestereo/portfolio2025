@@ -245,3 +245,94 @@ b {
   }
 }
 */
+/* ===== Resume fixes (append at end) ===== */
+/* Evitar que títulos del resume rompan la última letra */
+section#resume .section-index,
+section#resume .section-title,
+section#resume h3,
+section#resume h2 {
+  white-space: nowrap !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+}
+
+/* Strengths: evitar solapamiento y compactar el gap hacia Experience */
+section#resume .strengths,
+section#resume .strengths ul {
+  margin: 0 !important;
+  padding-left: 20px !important; /* bullets alineados */
+  line-height: 1.6 !important; /* evita que las filas se sobrepongan */
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  column-break-inside: avoid;
+}
+
+/* Cada ítem separado y sin saltos raros */
+section#resume .strengths ul li {
+  display: list-item !important;
+  margin-bottom: 8px !important;
+  break-inside: avoid-column !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+}
+
+/* Menos espacio entre Strengths y Experience */
+section#resume .strengths {
+  margin-bottom: 8px !important;
+}
+section#resume .experience {
+  margin-top: 6px !important;
+  padding-top: 6px !important;
+}
+
+/* Ajuste general para evitar quiebres extraños en listas/títulos */
+section#resume li,
+section#resume p,
+section#resume h2,
+section#resume h3 {
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+}
+/* ===== Scoped fix: Strengths list on mobile (minimal & safe) ===== */
+@media (max-width: 900px) {
+  /* Forzar 1 columna y correcto wrapping en strengths (solo móvil) */
+  section#resume .strengths,
+  section#resume .strengths ul {
+    column-count: 1 !important;
+    -webkit-column-count: 1 !important;
+    -moz-column-count: 1 !important;
+    column-gap: 18px !important;
+    margin: 0 0 12px 0 !important;
+    padding-left: 20px !important;
+    line-height: 1.6 !important;
+    display: block !important;
+    white-space: normal !important;
+  }
+
+  /* Cada li como list-item normal, sin transforms ni posicionamiento absoluto */
+  section#resume .strengths ul li {
+    display: list-item !important;
+    position: static !important;
+    transform: none !important;
+    margin: 0 0 8px 0 !important;
+    break-inside: avoid !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    z-index: auto !important;
+    background: transparent !important;
+  }
+
+  /* Neutralizar solo overlays/animaciones dentro de strengths (si existen) */
+  section#resume .strengths .scrambleText,
+  section#resume .strengths .scrambleText--overlay,
+  section#resume .strengths .scrambleText--base {
+    position: static !important;
+    transform: none !important;
+    display: inline !important;
+    opacity: 1 !important;
+    width: auto !important;
+    height: auto !important;
+  }
+}

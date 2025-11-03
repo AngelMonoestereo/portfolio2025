@@ -291,3 +291,70 @@ section#projects .projects--grid--title h3.theme--text {
     padding-bottom: 8px !important;
   }
 }
+
+/* ===== Scoped fix: projects index spacing on mobile (safe & minimal) ===== */
+@media (max-width: 760px) {
+  /* forzar que el contenedor del índice mantenga "//" y la etiqueta cerca y en flujo */
+  section#projects .projects--grid--title {
+    position: static !important;
+    transform: none !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    margin: 0 0 8px 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 8px !important; /* mantiene // y PROJECTS cerca */
+  }
+
+  /* Solo la etiqueta (la palabra PROJECTS) no debe partir */
+  section#projects .projects--grid--title h3.theme--text,
+  section#projects .projects--grid--title .section-title {
+    white-space: nowrap !important;
+    display: inline-block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Asegura que el índice ("04") y el separador "//" se mantengan inline */
+  section#projects .projects--grid--title .section-index,
+  section#projects .projects--grid--title .section-divider {
+    white-space: nowrap !important;
+    display: inline-block !important;
+  }
+}
+/* ===== Scoped fix: Projects index spacing (mobile-only, minimal) ===== */
+@media (max-width: 760px) {
+  /* forzar que el contenedor del índice mantenga "//" y la etiqueta cerca y en flujo */
+  section#projects .projects--grid--title {
+    position: static !important;
+    transform: none !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    margin: 0 0 8px 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 8px !important; /* mantiene // y PROJECTS cerca */
+  }
+
+  /* El label (la palabra PROJECTS) no debe partir; solo aquí */
+  section#projects .projects--grid--title h3.theme--text,
+  section#projects .projects--grid--title .section-title {
+    white-space: nowrap !important;
+    display: inline-block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Mantener inline el número y el separador */
+  section#projects .projects--grid--title .section-index,
+  section#projects .projects--grid--title .section-divider {
+    white-space: nowrap !important;
+    display: inline-block !important;
+  }
+}
