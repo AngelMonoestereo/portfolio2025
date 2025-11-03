@@ -295,3 +295,49 @@ section#resume h3 {
   overflow-wrap: normal !important;
   hyphens: none !important;
 }
+
+/* ===== FIX: Strengths - evitar solapamiento y compactar espacio hacia Experience ===== */
+
+/* Forzar que no use multi-column ni transforms que solapan texto */
+section#resume .strengths,
+section#resume .strengths ul {
+  column-count: 1 !important; /* si estaba usando columnas, deshabilita */
+  -webkit-column-count: 1 !important;
+  -moz-column-count: 1 !important;
+  margin: 0 !important;
+  padding-left: 20px !important;
+  line-height: 1.7 !important; /* elevar line-height para evitar solapamiento */
+  position: static !important;
+}
+
+/* Cada li como elemento normal, sin transform ni posicionamiento absoluto */
+section#resume .strengths ul li {
+  display: list-item !important;
+  position: static !important;
+  transform: none !important;
+  margin: 0 0 8px 0 !important;
+  break-inside: auto !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  z-index: auto !important;
+  background: transparent !important;
+}
+
+/* Asegurar separación compacta entre Strengths y Experience */
+section#resume .strengths {
+  margin-bottom: 8px !important;
+}
+section#resume .experience {
+  margin-top: 6px !important;
+  padding-top: 6px !important;
+}
+
+/* Neutralizar overlays/animaciones en resume que generen duplicados */
+section#resume .scrambleText,
+section#resume .scrambleText--overlay,
+section#resume .scrambleText * {
+  position: static !important;
+  transform: none !important;
+  opacity: 1 !important;
+  display: inline-block !important;
+}

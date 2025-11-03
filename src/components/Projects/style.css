@@ -291,3 +291,31 @@ section#projects .projects--grid--title h3.theme--text {
     padding-bottom: 8px !important;
   }
 }
+/* ===== FIX: evitar que "PROJECTS" se rompa en dos líneas ===== */
+section#projects .projects--grid--title h3.theme--text,
+section#projects .projects--grid--title {
+  white-space: nowrap !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+  display: inline-block !important; /* evita que el texto flexible haga wrap */
+  max-width: none !important;
+  width: auto !important;
+  letter-spacing: normal !important;
+}
+
+/* Si hay spans internos que animan/duplican texto (.scrambleText), neutralizarlos en producción */
+section#projects .scrambleText,
+section#projects .scrambleText--base,
+section#projects .scrambleText--overlay,
+section#projects .scrambleText * {
+  position: static !important;
+  display: inline-block !important;
+  transform: none !important;
+  left: auto !important;
+  top: auto !important;
+  width: auto !important;
+  height: auto !important;
+  opacity: 1 !important; /* opcional: si overlay con opacity:0 causa reflow, pon 1 o 0 según necesites */
+  pointer-events: none !important;
+}
