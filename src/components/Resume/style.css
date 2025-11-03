@@ -295,3 +295,42 @@ section#resume h3 {
   overflow-wrap: normal !important;
   hyphens: none !important;
 }
+/* ===== Scoped fix: ONLY Strengths list on mobile (safe & minimal) ===== */
+@media (max-width: 900px) {
+  /* Forzar 1 columna y correcto wrapping en strengths (solo móvil) */
+  section#resume .strengths,
+  section#resume .strengths ul {
+    column-count: 1 !important;
+    -webkit-column-count: 1 !important;
+    -moz-column-count: 1 !important;
+    column-gap: 18px !important;
+    margin: 0 0 12px 0 !important;
+    padding-left: 20px !important;
+    line-height: 1.6 !important;
+    display: block !important;
+    white-space: normal !important; /* evitar herencias de nowrap */
+  }
+
+  /* Cada li como list-item normal, sin transform/position que lo superpongan */
+  section#resume .strengths ul li {
+    display: list-item !important;
+    position: static !important;
+    transform: none !important;
+    margin: 0 0 8px 0 !important;
+    break-inside: avoid !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    z-index: auto !important;
+    background: transparent !important;
+  }
+
+  /* Asegurar que no haya overlays o scrambles afectando el flujo dentro de strengths */
+  section#resume .strengths .scrambleText,
+  section#resume .strengths .scrambleText--overlay,
+  section#resume .strengths *[data-scramble] {
+    position: static !important;
+    transform: none !important;
+    display: inline !important;
+    opacity: 1 !important;
+  }
+}
