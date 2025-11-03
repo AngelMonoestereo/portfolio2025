@@ -291,27 +291,3 @@ section#projects .projects--grid--title h3.theme--text {
     padding-bottom: 8px !important;
   }
 }
-/* ===== Projects: make index container a small flex and keep the label nowrap ===== */
-@media (max-width: 700px) {
-  /* Asegurar que el contenedor del índice mantenga // y la palabra juntos */
-  .projects--grid--title {
-    position: static !important; /* ya lo dejas static en móvil */
-    transform: none !important;
-    left: auto !important;
-    top: auto !important;
-    width: 100% !important;
-    margin-bottom: 8px !important;
-
-    display: flex !important;
-    align-items: center !important;
-    gap: 10px !important; /* mantiene // y PROJECTS cerca */
-  }
-
-  /* El label (PROJECTS) no debe partir */
-  .projects--grid--title h3.theme--text {
-    white-space: nowrap !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    display: inline-block !important;
-  }
-}
