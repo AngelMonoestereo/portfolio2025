@@ -291,61 +291,27 @@ section#projects .projects--grid--title h3.theme--text {
     padding-bottom: 8px !important;
   }
 }
-/* ===== Projects: index fix (specific & safe) ===== */
-/* Contenedor del índice (04 // PROJECTS) — usar flex para mantener // y label juntos */
-.projects--grid--title {
-  position: absolute; /* conserva comportamiento desktop */
-  left: 50%;
-  transform: translateX(-50%);
-  top: 12px;
-  z-index: 2;
+/* ===== Projects: make index container a small flex and keep the label nowrap ===== */
+@media (max-width: 700px) {
+  /* Asegurar que el contenedor del índice mantenga // y la palabra juntos */
+  .projects--grid--title {
+    position: static !important; /* ya lo dejas static en móvil */
+    transform: none !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    margin-bottom: 8px !important;
 
-  display: flex;
-  align-items: center;
-  gap: 12px; /* espacio entre "04", "//" y "PROJECTS" */
-  white-space: normal; /* por defecto aquí (el nowrap se aplica al label solo) */
-}
-
-/* Solo el texto del label (la palabra PROJECTS) NO debe partir */
-.projects--grid--title h3.theme--text {
-  white-space: nowrap !important;
-  word-break: normal !important;
-  overflow-wrap: normal !important;
-  display: inline-block !important;
-  margin: 0;
-  padding: 0;
-}
-
-/* Neutralizar overlays del scrambleText SOLO dentro del index, sin tocar el resto */
-.projects--grid--title .scrambleText,
-.projects--grid--title .scrambleText--overlay,
-.projects--grid--title .scrambleText--base {
-  position: static !important;
-  transform: none !important;
-  display: inline-block !important;
-  width: auto !important;
-  height: auto !important;
-  left: auto !important;
-  top: auto !important;
-  opacity: 1 !important;
-}
-
-/* ===== Quick fix: restore normal spacing for project paragraphs (mobile safe) ===== */
-@media (max-width: 900px) {
-  /* Párrafos dentro de workCard / descripción de proyectos */
-  .projects--grid--content--works p,
-  .workCard--body p,
-  .projects p {
-    white-space: normal !important;
-    word-break: normal !important;
-    overflow-wrap: break-word !important;
-    word-spacing: normal !important;
-    letter-spacing: normal !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important; /* mantiene // y PROJECTS cerca */
   }
 
-  /* Asegura que el index (04 // PROJECTS) mantenga separación con // */
-  .projects--grid--title {
-    gap: 8px !important;
-    align-items: center !important;
+  /* El label (PROJECTS) no debe partir */
+  .projects--grid--title h3.theme--text {
+    white-space: nowrap !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-block !important;
   }
 }

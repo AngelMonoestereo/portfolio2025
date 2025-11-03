@@ -245,169 +245,47 @@ b {
   }
 }
 */
-/* ===== Resume fixes (append at end) ===== */
-/* Evitar que títulos del resume rompan la última letra */
+/* ===== Resume: scoped fixes — ONLY index nowrap + minimal strengths mobile fix ===== */
+
+/* 1) Sólo el índice/label pequeño (p. ej. el "05 // RESUME") debe usar nowrap.
+   No aplicar nowrap a todos los h2/h3 para evitar romper párrafos y bullets. */
 section#resume .section-index,
-section#resume .section-title,
-section#resume h3,
-section#resume h2 {
+section#resume .section-title {
   white-space: nowrap !important;
   word-break: normal !important;
   overflow-wrap: normal !important;
   hyphens: none !important;
 }
 
-/* Strengths: evitar solapamiento y compactar el gap hacia Experience */
-section#resume .strengths,
-section#resume .strengths ul {
-  margin: 0 !important;
-  padding-left: 20px !important; /* bullets alineados */
-  line-height: 1.6 !important; /* evita que las filas se sobrepongan */
-  -webkit-column-break-inside: avoid;
-  -moz-column-break-inside: avoid;
-  column-break-inside: avoid;
-}
-
-/* Cada ítem separado y sin saltos raros */
-section#resume .strengths ul li {
-  display: list-item !important;
-  margin-bottom: 8px !important;
-  break-inside: avoid-column !important;
-  word-break: normal !important;
-  overflow-wrap: normal !important;
-}
-
-/* Menos espacio entre Strengths y Experience */
-section#resume .strengths {
-  margin-bottom: 8px !important;
-}
-section#resume .experience {
-  margin-top: 6px !important;
-  padding-top: 6px !important;
-}
-
-/* Ajuste general para evitar quiebres extraños en listas/títulos */
-section#resume li,
-section#resume p,
-section#resume h2,
-section#resume h3 {
-  word-break: normal !important;
-  overflow-wrap: normal !important;
-  hyphens: none !important;
-}
-
-/* ===== Resume: restore normal flow & fix strengths list ===== */
-
-/* Revertir reglas globales de nowrap en resume (asegura texto normal) */
-section#resume h2,
-section#resume h3,
-section#resume p,
-section#resume li {
-  white-space: normal !important;
-  word-break: normal !important;
-  overflow-wrap: normal !important;
-  hyphens: none !important;
-}
-
-/* Strengths: comportamiento de lista seguro */
-/* Usar columnas solo en pantallas grandes y evitar solapamiento en móvil */
-section#resume .strengths {
-  margin: 0 0 8px 0 !important;
-  padding-left: 20px !important;
-  line-height: 1.7 !important;
-  column-count: 1 !important; /* mobile por defecto 1 */
-  -webkit-column-count: 1 !important;
-  -moz-column-count: 1 !important;
-  column-gap: 24px !important;
-}
-
-/* Habilitar 2 columnas en anchos mayores (ajusta breakpoint si hace falta) */
-@media (min-width: 900px) {
-  section#resume .strengths {
-    column-count: 2 !important;
-    -webkit-column-count: 2 !important;
-    -moz-column-count: 2 !important;
-  }
-}
-
-section#resume .strengths ul {
-  margin: 0 !important;
-  padding-left: 20px !important;
-}
-
-/* Cada li como bloque normal — evita transforms/position que solapan */
-section#resume .strengths ul li {
-  display: list-item !important;
-  position: static !important;
-  transform: none !important;
-  margin: 0 0 10px 0 !important;
-  break-inside: avoid !important;
-  word-break: normal !important;
-  overflow-wrap: normal !important;
-  z-index: auto !important;
-  background: transparent !important;
-}
-
-/* Espaciado entre Strengths y Experience */
-section#resume .strengths {
-  margin-bottom: 10px !important;
-}
-section#resume .experience {
-  margin-top: 8px !important;
-  padding-top: 6px !important;
-}
-
-/* Neutralizar overlays solo dentro del resume headings si las hay */
-section#resume .scrambleText,
-section#resume .scrambleText--overlay,
-section#resume .scrambleText--base {
-  position: static !important;
-  transform: none !important;
-  display: inline-block !important;
-  width: auto !important;
-  opacity: 1 !important;
-}
-/* ===== Quick fix: restore normal spacing for resume text & lists (mobile safe) ===== */
+/* 2) Minimal: Fix ONLY strengths list on mobile (no tocar el resto del resume) */
 @media (max-width: 900px) {
-  /* Párrafos generales del resume (descr, bullets, experience) */
-  section#resume p,
-  section#resume .workCard--body p,
-  section#resume .summary,
-  .resume p {
-    white-space: normal !important;
-    word-break: normal !important;
-    overflow-wrap: break-word !important;
-    word-spacing: normal !important;
-    letter-spacing: normal !important;
-  }
-
-  /* Strengths: forzar una columna en mobile y spacing seguro */
   section#resume .strengths,
   section#resume .strengths ul {
-    column-count: 1 !important;
+    column-count: 1 !important; /* forzar 1 columna en móvil */
     -webkit-column-count: 1 !important;
     -moz-column-count: 1 !important;
-    display: block !important;
-    line-height: 1.7 !important;
+    column-gap: 18px !important;
     margin: 0 0 10px 0 !important;
     padding-left: 20px !important;
+    line-height: 1.65 !important;
+    display: block !important;
   }
 
   section#resume .strengths ul li {
     display: list-item !important;
     position: static !important;
     transform: none !important;
-    margin-bottom: 8px !important;
+    margin: 0 0 8px 0 !important;
     word-break: normal !important;
     overflow-wrap: break-word !important;
-    word-spacing: normal !important;
-    letter-spacing: normal !important;
   }
 
-  /* Technical skills: en móvil pasar a columna simple para evitar "scatter" */
-  section#resume .technical-skills,
-  section#resume .technical-skills ul {
-    column-count: 1 !important;
-    display: block !important;
+  /* Asegurar que dentro de strengths no exista white-space:nowrap heredado */
+  section#resume .strengths,
+  section#resume .strengths * {
+    white-space: normal !important;
   }
 }
+
+/* 3) Mantener reglas generales de texto con white-space normal (si ya las tienes,
+   las reglas anteriores no las deberían sobreescribir para párrafos y listas) */
