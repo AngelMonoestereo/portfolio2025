@@ -1,3 +1,4 @@
+/* ============ Resume ============ */
 .resume {
   min-height: 100vh;
   padding: 60px 102px;
@@ -245,12 +246,11 @@ b {
   }
 }
 */
+
 /* ===== Resume fixes (append at end) ===== */
-/* Evitar que títulos del resume rompan la última letra */
+/* Evitar que SOLO el índice del resume rompa la última letra (scoped) */
 section#resume .section-index,
-section#resume .section-title,
-section#resume h3,
-section#resume h2 {
+section#resume .section-title {
   white-space: nowrap !important;
   word-break: normal !important;
   overflow-wrap: normal !important;
@@ -295,6 +295,7 @@ section#resume h3 {
   overflow-wrap: normal !important;
   hyphens: none !important;
 }
+
 /* ===== Scoped fix: Strengths list on mobile (minimal & safe) ===== */
 @media (max-width: 900px) {
   /* Forzar 1 columna y correcto wrapping en strengths (solo móvil) */
