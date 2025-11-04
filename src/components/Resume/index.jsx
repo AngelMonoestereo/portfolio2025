@@ -65,14 +65,13 @@ export default function Resume() {
             </motion.h3>
 
             <div className="resume--grid--detail--data--name">
-              <h2 className="resume--name">
-                <span>Angel</span>
-                <span>Reyes</span>
-              </h2>
-
-              <h4 className="resume--role">
-                <ScrambleText shuffle delay={0.2}>Frontend Developer</ScrambleText>
-              </h4>
+              <div className="resume--header-block">
+  <h2 className="resume--name">
+    <span>Angel</span>
+    <span>Reyes</span>
+  </h2>
+  <h4 className="resume--role">Frontend Developer</h4>
+</div>
 
               <motion.div
                 initial="hidden"
