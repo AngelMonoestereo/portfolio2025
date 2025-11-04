@@ -216,3 +216,139 @@ b {
     margin-bottom: 12px;
   }
 }
+/* ===== RESUME LAYOUT FIX - strengths bullets, scrambler overlay, grid shrink ===== */
+/* Aplica en navegadores modernos (Chrome & Safari) */
+@supports (display: grid) {
+  /* Seguridad: permitir que los children del grid se encojan y no causen overflow */
+  section#resume .resume--grid,
+  section#resume .resume--grid > * {
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* ===== Strengths: una sola columna, bullets a la izquierda y spacing consistente ===== */
+  section#resume .strengths,
+  section#resume .strengths ul {
+    -webkit-column-count: 1 !important;
+    column-count: 1 !important;
+    display: block !important;
+    list-style-position: outside !important; /* bullets a la izquierda */
+    padding-left: 28px !important; /* espacio para bullets */
+    margin: 0 0 12px 0 !important;
+    white-space: normal !important;
+    line-height: 1.9 !important; /* separación vertical para evitar solapes */
+  }
+
+  section#resume .strengths ul li {
+    display: list-item !important;
+    position: relative !important;
+    margin: 0 0 10px 0 !important;
+    padding: 0 !important;
+    clear: none !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    vertical-align: baseline !important;
+  }
+
+  /* Asegurar markers/bullets consistentes */
+  section#resume .strengths ul li::marker {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9em;
+  }
+
+  /* ===== Evitar que "STRENGTHS" se rompa en dos líneas ===== */
+  section#resume .section-title,
+  section#resume .strengths-header,
+  section#resume .resume--index {
+    white-space: nowrap !important;
+    display: inline-block !important;
+    word-break: normal !important;
+  }
+
+  /* ===== Scrambler: overlay no debe empujar el layout ===== */
+  section#resume .scrambleText {
+    position: relative !important;
+    display: inline-block !important;
+    vertical-align: baseline !important;
+    white-space: normal !important;
+    line-height: inherit !important;
+  }
+
+  /* base: el texto real en flujo */
+  section#resume .scrambleText--base {
+    display: inline-block !important;
+    position: relative !important;
+    z-index: 1 !important;
+    opacity: 1 !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+
+  /* overlay: absolute dentro de .scrambleText y no interactúa con layout */
+  section#resume .scrambleText--overlay {
+    position: absolute !important;
+    inset: 0 !important; /* top/right/bottom/left = 0 */
+    display: inline-block !important;
+    pointer-events: none !important;
+    white-space: nowrap !important; /* no rompe por letras */
+    line-height: inherit !important;
+    transform: none !important;
+    z-index: 2 !important;
+    opacity: 1 !important;
+  }
+
+  section#resume .scrambleText--overlay span {
+    display: inline-block !important;
+    white-space: nowrap !important;
+    vertical-align: baseline !important;
+  }
+
+  /* ===== Job title/company & description flow ===== */
+  section#resume .resume--grid--experience--head h3,
+  section#resume .resume--grid--experience--head .company,
+  section#resume .experience .company {
+    display: inline-block !important;
+    white-space: nowrap !important;
+    vertical-align: middle !important;
+    margin-right: 10px !important;
+    max-width: 58ch !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  section#resume .resume--grid--experience--body,
+  section#resume .resume--grid--experience--body p,
+  section#resume .resume--grid--experience--body .desc {
+    min-width: 0 !important;
+    position: relative !important;
+    transform: none !important;
+    line-height: 1.6 !important;
+    margin: 6px 0 12px 0 !important;
+    clear: both !important;
+  }
+
+  /* MOBILE: permitir wrap en títulos y ajustar strengths */
+  @media (max-width: 700px) {
+    section#resume .section-title,
+    section#resume .strengths-header,
+    section#resume .resume--index {
+      white-space: normal !important;
+      display: block !important;
+    }
+
+    section#resume .strengths,
+    section#resume .strengths ul {
+      line-height: 1.6 !important;
+      padding-left: 20px !important;
+      margin-bottom: 10px !important;
+    }
+
+    section#resume .resume--grid--experience--head h3,
+    section#resume .resume--grid--experience--head .company {
+      display: block !important;
+      white-space: normal !important;
+      max-width: 100% !important;
+      margin: 0 0 6px 0 !important;
+    }
+  }
+}
