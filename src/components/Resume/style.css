@@ -191,3 +191,50 @@
   align-items: flex-start;
   gap: 4px;
 }
+
+/* === FIX: STRENGTHS heading cutoff === */
+.resume--grid--detail--data--skills h4 {
+  display: block !important;
+  font-size: 1rem !important;
+  line-height: 1.4 !important;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 12px;
+  overflow: visible !important;
+  white-space: normal !important;
+  word-break: keep-all;
+}
+
+/* fuerza ScrambleText dentro del h4 a ocupar una sola línea */
+.resume--grid--detail--data--skills h4 span {
+  display: inline-block !important;
+  line-height: 1.4 !important;
+  vertical-align: bottom !important;
+}
+
+/* === FIX: spacing bullets (skills & strengths) === */
+.resume--grid--detail--data--skills li,
+.resume--grid--detail--data--skills motion.li {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+  margin-bottom: 10px !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+  font-size: 15.8px !important;
+  line-height: 1.7 !important;
+  white-space: normal !important;
+}
+
+/* === ensure bullets don't overlap text === */
+.resume--grid--detail--data--skills li::before,
+.resume--grid--detail--data--skills motion.li::before {
+  content: '' !important;
+  width: 6px !important;
+  height: 6px !important;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  margin-top: 0.6em;
+  flex-shrink: 0;
+  opacity: 0.95;
+}

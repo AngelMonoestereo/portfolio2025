@@ -105,3 +105,29 @@
     margin: 22px 0 16px;
   }
 }
+/* === FIX: overlapping bullets in job descriptions === */
+.resumeCard--body--center li,
+.resumeCard--body--center motion.li {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  font-size: clamp(1rem, 0.35vw + 0.9rem, 1.12rem) !important;
+  line-height: 1.75 !important;
+  margin-bottom: 12px !important;
+  white-space: normal !important;
+  word-break: break-word !important;
+}
+
+/* re-align bullets vertically */
+.resumeCard--body--center li::before,
+.resumeCard--body--center motion.li::before {
+  content: '' !important;
+  width: 6px !important;
+  height: 6px !important;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  margin-top: 0.55em !important;
+  flex: 0 0 6px !important;
+  opacity: 0.95;
+}
