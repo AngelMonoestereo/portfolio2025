@@ -238,3 +238,50 @@
   flex-shrink: 0;
   opacity: 0.95;
 }
+
+/* --- Fix ScrambleText truncation for STRENGTHS --- */
+.resume--grid--detail--data--skills h4 {
+  display: inline-block !important;
+  text-transform: uppercase;
+  overflow: visible !important;
+  position: relative;
+}
+
+.resume--grid--detail--data--skills h4 span {
+  display: inline-block !important;
+  min-width: 6.2ch !important; /* deja espacio para "STRENGTHS" completo */
+  white-space: nowrap !important;
+  line-height: 1.4 !important;
+}
+
+/* === Fix: last letter cut off in Safari for ScrambleText titles === */
+.resume--grid--detail--data--skills h4 {
+  display: inline-block;
+  text-transform: uppercase;
+  position: relative;
+  overflow: visible !important;
+  padding-right: 2px; /* <- evita que se corte la "S" final */
+  letter-spacing: 0.5px;
+}
+
+.resume--grid--detail--data--skills h4 span {
+  display: inline-block;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+/* === Fix: tight spacing on Safari (line-height + gaps) === */
+.resume--grid--detail--data--skills li,
+.resume--grid--detail--data--skills motion.li {
+  margin-bottom: 12px !important;
+  line-height: 1.75 !important;
+}
+
+.resumeCard--body--center li,
+.resumeCard--body--center motion.li {
+  margin-bottom: 14px !important;
+  line-height: 1.75 !important;
+}
+
+.resume--grid--detail--data {
+  gap: 38px !important; /* más separación entre secciones */
+}
