@@ -256,38 +256,4 @@ p {
     max-width: 95% !important;
   }
 }
-/* ===== Project fixes (append at end) ===== */
-/* Evitar que "PROJECTS" u otros índices se partan en varias líneas */
-section#projects .projects--grid--title h3.theme--text {
-  white-space: nowrap !important;
-  word-break: normal !important;
-  overflow-wrap: normal !important;
-  hyphens: none !important;
-}
-
-/* Reducir espacio entre la última card y la sección Resume (mobile) */
-@media (max-width: 900px) {
-  .projects--grid--content--works {
-    gap: 18px !important; /* menos espacio entre cards */
-  }
-
-  /* quitar margenes/paddings que empujan el siguiente bloque */
-  .projects--grid--detail,
-  .projects--grid--footer,
-  .projects--grid + hr,
-  section#projects hr {
-    margin-top: 8px !important;
-    margin-bottom: 8px !important;
-  }
-
-  section#projects,
-  .projects {
-    padding-bottom: 12px !important;
-  }
-
-  .projects--grid--content--works > .workCard:last-child,
-  .workCard:last-child {
-    margin-bottom: 8px !important;
-    padding-bottom: 8px !important;
-  }
-}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
