@@ -18,6 +18,7 @@
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
+  align-items: flex-start;
 }
 
 /* HEADINGS */
@@ -26,20 +27,83 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 200%;
+  line-height: 1.6;
   white-space: normal;
   word-break: break-word;
 }
 
-/* LISTS */
-.resume--grid ul {
-  margin-top: 24px;
-  padding-left: 0;
+/* LEFT SIDE */
+.resume--grid--detail {
+  grid-area: detail;
+  display: flex;
 }
 
-/* BULLETS: uniform look for skills & strengths */
+.resume--grid--detail--data {
+  padding: 0 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.resume--grid--detail--data h2 {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -1.28px;
+  word-break: break-word;
+}
+
+/* === NAME & ROLE === */
+.resume--name {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  color: #fff;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: -1.28px;
+  line-height: 1.1;
+}
+
+.resume--name span {
+  white-space: nowrap;
+}
+
+.resume--role {
+  display: block;
+  margin-top: 4px;
+  font-size: 18px;
+  font-weight: 400;
+  opacity: 0.85;
+  line-height: 1.3;
+  text-align: left;
+}
+
+/* ICONS */
+.resume--grid--detail--data--name--icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* TECH SKILLS / STRENGTHS */
+.resume--grid--detail--data--skills h4 {
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.resume--grid--detail--data--skills .double {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+/* Fix bullets for FadeList-generated ULs */
 .resume--grid--detail--data--skills ul {
-  list-style: none;
+  list-style: none !important;
   padding-left: 0;
   margin: 0;
 }
@@ -50,7 +114,7 @@
   gap: 10px;
   margin-bottom: 8px;
   color: rgba(255, 255, 255, 0.9);
-  font-size: 16px;
+  font-size: 15.5px;
   line-height: 1.6;
 }
 
@@ -64,114 +128,33 @@
   flex-shrink: 0;
 }
 
-/* LEFT SIDE (DETAIL) */
-.resume--grid--detail {
-  grid-area: detail;
-  display: flex;
-}
-
-.resume--grid--detail--data {
-  padding: 0 50px;
-  display: flex;
-  flex-direction: column;
-  gap: 5%;
-}
-
-.resume--grid--detail--data h2 {
-  color: #fff;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 100%;
-  letter-spacing: -1.28px;
-  white-space: nowrap;
-  word-break: break-word;
-}
-
-/* NAME & ROLE */
-.resume--name {
-  display: flex;
-  gap: 10px;
-  font-size: 32px;
-  font-weight: 400;
-  line-height: 100%;
-  letter-spacing: -1.28px;
-  color: #fff;
-  white-space: normal;
-  flex-wrap: wrap;
-}
-
-.resume--name span {
-  white-space: nowrap;
-}
-
-.resume--role {
-  display: block;
-  margin-top: 6px;
-  font-size: 18px;
-  font-weight: 400;
-  opacity: 0.85;
-  line-height: 1.3;
-  text-align: left;
-}
-
-.resume--grid--detail--data--name h4 {
-  opacity: 0.6;
-}
-
-.resume--grid--detail--data--name--icons {
-  display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-.resume--grid--detail--data--skills h4 {
-  text-transform: uppercase;
-  white-space: normal;
-  word-break: keep-all;
-  display: inline-block;
-  max-width: 100%;
-  overflow-wrap: anywhere;
-}
-
-.resume--grid--detail--data--skills .double {
-  display: flex;
-  gap: 50px;
-}
-
 /* RIGHT SIDE (EXPERIENCE) */
 .resume--grid--experience {
   grid-area: experience;
-}
-
-.resume--grid--experience--head {
-  display: flex;
-  justify-content: space-between;
-  gap: 50px;
-}
-
-.resume--grid--experience--head h3 {
-  margin-top: 10px;
 }
 
 .resume--grid--experience--body {
   padding-top: 50px;
   display: flex;
   flex-direction: column;
-  gap: 48px; /* adds space between jobs */
+  gap: 48px;
+}
+
+.resume--grid--experience--body h4 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 8px;
 }
 
 /* RESPONSIVE */
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .resume {
-    padding: 20px;
+    padding: 24px;
     padding-top: 90px;
-    height: fit-content;
   }
 
   .resume--grid {
-    flex-grow: 1;
-    display: grid;
     grid-template-columns: 1fr;
     grid-template-areas:
       'detail'
@@ -179,38 +162,18 @@
     row-gap: 60px;
   }
 
-  .resume--grid--detail {
+  .resume--grid--detail--data {
+    padding: 0;
+    gap: 28px;
+  }
+
+  .resume--grid--detail--data--skills .double {
     flex-direction: column;
     gap: 20px;
   }
 
-  .resume--grid--detail--data {
-    padding: 0px;
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  .resume--grid--experience--head {
-    flex-direction: column-reverse;
-    gap: 30px;
-  }
-
-  .resume--grid--experience--head > * {
-    width: 100%;
-    min-width: 0;
-  }
-
-  .resume--grid--experience--head h4 {
-    white-space: normal;
-    font-size: 1.4rem;
-    line-height: 1.5;
-    margin-bottom: 8px;
-  }
-
-  .resume--grid ul li {
-    font-size: 15px;
-    line-height: 150%;
-    opacity: 1;
+  .resume--grid--experience--body {
+    gap: 40px;
   }
 }
 

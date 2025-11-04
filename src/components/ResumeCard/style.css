@@ -1,9 +1,8 @@
-/* CARD WRAPPER */
 .resumeCard {
   width: 100%;
 }
 
-/* subtle divider */
+/* divider line */
 .resume--line {
   height: 1px;
   width: 100%;
@@ -11,21 +10,24 @@
   margin: 28px 0 20px;
 }
 
-/* GRID LAYOUT: company/role | bullets | date */
+/* GRID LAYOUT: left | center | right */
 .resumeCard--body {
   display: grid;
-  grid-template-columns: minmax(200px, 0.9fr) 2fr minmax(140px, 0.8fr);
+  grid-template-columns: minmax(180px, 1fr) minmax(300px, 2fr) minmax(
+      120px,
+      0.8fr
+    );
   gap: 28px;
   align-items: start;
   width: 100%;
 }
 
-/* Allow text to wrap properly */
+/* ensure wrapping */
 .resumeCard--body > * {
   min-width: 0;
 }
 
-/* LEFT: COMPANY / ROLE */
+/* LEFT: COMPANY + ROLE */
 .resumeCard--body--left h4 {
   font-size: clamp(1.05rem, 0.5vw + 0.95rem, 1.25rem);
   line-height: 1.25;
@@ -43,33 +45,32 @@
   white-space: normal;
 }
 
-/* CENTER: BULLETS (FadeList renders a UL) */
+/* CENTER: RESPONSIBILITIES */
 .resumeCard--body--center ul {
   list-style: none;
-  margin: 0;
   padding-left: 0;
+  margin: 0;
 }
 
 .resumeCard--body--center li {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
+  gap: 10px;
   margin-bottom: 10px;
-  color: rgba(255, 255, 255, 0.96);
-  font-size: clamp(1.02rem, 0.36vw + 0.95rem, 1.14rem);
+  color: rgba(255, 255, 255, 0.95);
+  font-size: clamp(1rem, 0.32vw + 0.95rem, 1.12rem);
   line-height: 1.7;
 }
 
-/* bullet circle */
 .resumeCard--body--center li::before {
   content: '';
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.95);
-  margin-top: 0.58em;
+  margin-top: 0.55em;
   flex: 0 0 6px;
-  opacity: 0.95;
+  opacity: 0.9;
 }
 
 /* RIGHT: DATE */
@@ -82,7 +83,7 @@
   word-break: keep-all;
 }
 
-/* ======= RESPONSIVE ======= */
+/* RESPONSIVE */
 @media (max-width: 1100px) {
   .resumeCard--body {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr) minmax(120px, 0.8fr);
@@ -103,32 +104,4 @@
   .resume--line {
     margin: 22px 0 16px;
   }
-}
-
-/* Optional nested lists */
-.resumeCard--body--center li ul {
-  margin-top: 6px;
-  padding-left: 18px;
-}
-
-.resumeCard--body--center li ul li::before {
-  width: 5px;
-  height: 5px;
-  opacity: 0.9;
-}
-
-/* HEADER STYLES (Company + Role block wrapper) */
-.resume-card--header {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
-}
-
-.resume-card--header h4,
-.resume-card--header h5 {
-  white-space: normal;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  line-height: 1.4;
 }
