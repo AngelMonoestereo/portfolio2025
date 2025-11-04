@@ -285,3 +285,59 @@
 .resume--grid--detail--data {
   gap: 38px !important; /* más separación entre secciones */
 }
+
+/* === NORMALIZA TITULOS DE SECCION (Safari + Chrome) === */
+.resume--grid--detail--data--skills h4 {
+  display: inline-block;
+  text-transform: uppercase;
+  overflow: visible;
+  letter-spacing: 0.5px;
+  padding-right: 1px;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  line-height: 1.3;
+  transform: translateY(1px); /* corrige el salto visual de Safari */
+}
+
+/* ScrambleText spans dentro del h4 */
+.resume--grid--detail--data--skills h4 span {
+  display: inline;
+  white-space: nowrap;
+  line-height: 1.3;
+}
+
+/* === SEPARACION ENTRE ITEMS EN SAFARI === */
+.resume--grid--detail--data--skills li,
+.resume--grid--detail--data--skills motion.li {
+  margin-bottom: 12px;
+  line-height: 1.75;
+}
+
+/* Aumenta ligeramente espacio entre secciones */
+.resume--grid--detail--data {
+  gap: 42px;
+}
+
+/* === PARAGRAFOS Y BULLETS EN SAFARI: FORZAR LINE-HEIGHT === */
+.resumeCard--body--center li,
+.resumeCard--body--center motion.li {
+  line-height: 1.75 !important;
+  margin-bottom: 14px;
+  word-break: break-word;
+}
+
+/* === CORRIGE RENDER DE SAFARI EN MOTION ELEMENTS === */
+@supports (-webkit-touch-callout: none) {
+  .resume * {
+    -webkit-text-size-adjust: 100%;
+    word-break: break-word;
+  }
+
+  /* Safari tiende a colapsar el espacio vertical en motion lists */
+  .resumeCard--body--center motion.ul,
+  .resume--grid--detail--data--skills motion.ul {
+    display: block !important;
+    line-height: 1.75 !important;
+    margin-top: 4px !important;
+  }
+}
