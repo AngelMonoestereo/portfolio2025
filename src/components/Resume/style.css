@@ -91,7 +91,6 @@
   grid-area: experience;
 }
 
-/* Header de la columna "experience" (desktop) */
 .resume--grid--experience--head {
   display: flex;
   justify-content: space-between;
@@ -101,7 +100,6 @@
 .resume--grid--experience--body {
   padding-top: 50px;
 }
-
 .resume--name {
   display: flex;
   gap: 10px;
@@ -128,7 +126,6 @@
   opacity: 0.85;
 }
 
-/* ------------------ MOBILE (<=700px) ------------------ */
 @media (max-width: 700px) {
   .resume {
     padding: 20px;
@@ -158,27 +155,14 @@
     gap: 30px;
   }
 
-  /* Corregido: ahora la cabecera de experience es column (no column-reverse) */
   .resume--grid--experience--head {
-    display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 30px;
-    justify-content: flex-start;
-    align-items: flex-start;
   }
 
-  /* Aseguramos que cada hijo ocupe todo el ancho y no colapse */
   .resume--grid--experience--head > * {
     width: 100%;
     min-width: 0;
-  }
-
-  /* Forzamos que los títulos (p.ej. el "05 // RESUME") estén arriba */
-  /* En tu markup el índice suele estar en un h4; esta regla lo coloca primero en móviles */
-  .resume--grid--experience--head h4 {
-    order: -1 !important;
-    margin: 0 0 8px 0 !important;
-    align-self: flex-start !important;
   }
 
   .resume--grid--experience--head h4 {
@@ -195,7 +179,6 @@
   }
 }
 
-/* Reglas globales para evitar saltos/overflows raros en títulos/textos */
 h1,
 h2,
 h3,
@@ -220,165 +203,16 @@ b {
   overflow-wrap: break-word !important;
   line-height: 1.4 !important;
 }
-@media (max-width: 700px) {
-  .resume--index {
-    margin: 0 0 12px 0;
-    font-size: 1.05rem;
+
+/* DEBUG: Forzar fuente legible para evitar saltos raros */
+* {
+  font-family: Arial, sans-serif !important;
+}
+
+@media (max-width: 768px) {
+  .resume--grid--title {
     align-self: flex-start;
-  }
-  .resume--grid--detail--data--name {
-    /* reduce gap si necesitas que el índice quede muy pegado */
-    gap: 8px;
+    margin-top: 0;
+    margin-bottom: 12px;
   }
 }
-
-/* (Opcional) si ves problemas raros con transforms o overlays en móvil,
-   descomenta las siguientes reglas para forzar flujo normal:
-
-@media (max-width:700px) {
-  .resume--grid--experience--head,
-  .resume--grid--detail,
-  .resume--grid--detail--data {
-    position: static !important;
-    transform: none !important;
-    z-index: auto !important;
-  }
-}
-*/
-/* ===== FIX: Resume — strengths bullets, scrambler overlay, grid shrink (Chrome + Safari) ===== */
-/* Aplica en WebKit y otros navegadores modernos */
-@supports (display: grid) {
-  /* Seguridad: permitir que los children del grid se encojan y no causen overflow */
-  section#resume .resume--grid,
-  section#resume .resume--grid > * {
-    min-width: 0 !important;
-    box-sizing: border-box !important;
-  }
-
-  /* ===== Strengths: una sola columna, bullets alineados y spacing consistente ===== */
-  section#resume .strengths,
-  section#resume .strengths ul {
-    -webkit-column-count: 1 !important;
-    column-count: 1 !important;
-    display: block !important;
-    list-style-position: outside !important; /* bullets a la izquierda, consistentes */
-    padding-left: 28px !important; /* espacio para bullets */
-    margin: 0 0 8px 0 !important;
-    white-space: normal !important;
-    line-height: 1.8 !important; /* más separación vertical para evitar solapes */
-  }
-
-  section#resume .strengths ul li {
-    display: list-item !important;
-    position: relative !important; /* evita que otros elementos floten sobre ellos */
-    margin: 0 0 10px 0 !important;
-    padding: 0 !important;
-    clear: both !important;
-    word-break: break-word !important;
-    overflow-wrap: break-word !important;
-    vertical-align: baseline !important;
-  }
-
-  /* Forzar bullets estándar (a veces list-style se pierde con display override) */
-  section#resume .strengths ul li::marker {
-    font-size: 0.9em;
-    color: rgba(255, 255, 255, 0.65);
-  }
-
-  /* ===== Scrambler: evitar que la overlay rompa el flujo del texto ===== */
-  section#resume .scrambleText {
-    position: relative !important;
-    display: inline-block !important;
-    white-space: normal !important;
-    line-height: inherit !important;
-    vertical-align: baseline !important;
-  }
-
-  /* La capa base debe ser la que se muestre en el flujo */
-  section#resume .scrambleText--base {
-    display: inline !important;
-    position: relative !important;
-    z-index: 1 !important;
-    opacity: 1 !important;
-    white-space: normal !important;
-    word-break: break-word !important;
-  }
-
-  /* La overlay no debe empujar el layout; si la scrambler la necesita la dejamos absolute y pointer-events:none */
-  section#resume .scrambleText--overlay {
-    position: absolute !important;
-    inset: 0 !important; /* top/right/bottom/left = 0 */
-    display: inline-block !important;
-    pointer-events: none !important;
-    white-space: nowrap !important; /* no romper por letras internas */
-    line-height: inherit !important;
-    transform: none !important;
-    z-index: 2 !important;
-    opacity: 1 !important;
-  }
-
-  section#resume .scrambleText--overlay span {
-    display: inline-block !important;
-    white-space: nowrap !important;
-    vertical-align: baseline !important;
-  }
-
-  /* ===== Títulos: evitar que STRENGTHS se rompa en dos ===== */
-  section#resume .section-title,
-  section#resume .strengths-header,
-  section#resume .resume--index {
-    white-space: nowrap !important;
-    word-break: normal !important;
-    display: inline-block !important;
-  }
-
-  /* ===== Job titles / company: mantener flujo normal y evitar overlap con description ===== */
-  section#resume .resume--grid--experience--head h3,
-  section#resume .resume--grid--experience--head .company,
-  section#resume .experience .company {
-    display: inline-block !important;
-    white-space: nowrap !important;
-    vertical-align: middle !important;
-    margin-right: 10px !important;
-    max-width: 58ch !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-  }
-
-  section#resume .resume--grid--experience--body,
-  section#resume .resume--grid--experience--body p,
-  section#resume .resume--grid--experience--body .desc {
-    min-width: 0 !important;
-    position: relative !important;
-    transform: none !important;
-    line-height: 1.6 !important;
-    margin: 6px 0 12px 0 !important;
-    clear: both !important;
-  }
-
-  /* MOBILE: permitir wrap en titles y ajustar strengths para pantallas pequeñas */
-  @media (max-width: 700px) {
-    section#resume .section-title,
-    section#resume .strengths-header,
-    section#resume .resume--index {
-      white-space: normal !important;
-      display: block !important;
-    }
-
-    section#resume .strengths,
-    section#resume .strengths ul {
-      line-height: 1.5 !important;
-      padding-left: 20px !important;
-      margin-bottom: 10px !important;
-    }
-
-    section#resume .resume--grid--experience--head h3,
-    section#resume .resume--grid--experience--head .company {
-      display: block !important;
-      white-space: normal !important;
-      max-width: 100% !important;
-      margin: 0 0 6px 0 !important;
-    }
-  }
-}
-/* pega aquí exactamente el bloque CSS que copiaste arriba */
