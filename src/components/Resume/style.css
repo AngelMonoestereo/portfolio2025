@@ -245,103 +245,125 @@ b {
   }
 }
 */
-/* ===== Safari / WebKit: fixes for Resume layout (Strengths + grid min-width + headings) ===== */
-@supports (-webkit-touch-callout: none) {
-  /* Evitar autoscaling de texto en Safari que puede cambiar wrapping */
-  html,
-  body {
-    -webkit-text-size-adjust: 100% !important;
-  }
+/* ===== Resume fixes (append at end) ===== */
+/* Evitar que títulos del resume rompan la última letra */
+section#resume .section-index,
+section#resume .section-title,
+section#resume h3,
+section#resume h2 {
+  white-space: nowrap !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+}
 
-  /* Permitir que grid/flex children se encojan en Safari (evita que una columna fuerce overflow) */
-  section#resume .resume--grid,
-  section#resume .resume--grid > * {
-    min-width: 0 !important;
-  }
+/* Strengths: evitar solapamiento y compactar el gap hacia Experience */
+section#resume .strengths,
+section#resume .strengths ul {
+  margin: 0 !important;
+  padding-left: 20px !important; /* bullets alineados */
+  line-height: 1.6 !important; /* evita que las filas se sobrepongan */
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  column-break-inside: avoid;
+}
 
-  /* Asegurar que la columna de detalle no imponga min-width ni transforms que provoquen solapes */
-  section#resume .resume--grid--detail,
-  section#resume .resume--grid--detail * {
-    min-width: 0 !important;
-    position: static !important;
-    transform: none !important;
-  }
+/* Cada ítem separado y sin saltos raros */
+section#resume .strengths ul li {
+  display: list-item !important;
+  margin-bottom: 8px !important;
+  break-inside: avoid-column !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+}
 
-  /* ==== Strengths: 1 columna, li normales, sin overlays ==== */
-  section#resume .strengths,
-  section#resume .strengths ul {
-    -webkit-column-count: 1 !important;
-    column-count: 1 !important;
-    -webkit-column-break-inside: avoid !important;
-    -moz-column-break-inside: avoid !important;
-    column-break-inside: avoid !important;
-    display: block !important;
-    white-space: normal !important;
-    line-height: 1.6 !important;
-    margin: 0 0 6px 0 !important; /* reduce gap hacia Experience */
-    padding-left: 20px !important;
-  }
+/* Menos espacio entre Strengths y Experience */
+section#resume .strengths {
+  margin-bottom: 8px !important;
+}
+section#resume .experience {
+  margin-top: 6px !important;
+  padding-top: 6px !important;
+}
 
-  section#resume .strengths ul li {
-    display: list-item !important;
-    position: static !important;
-    transform: none !important;
-    margin: 0 0 8px 0 !important;
-    break-inside: avoid !important;
-    word-break: normal !important;
-    overflow-wrap: break-word !important;
-    z-index: auto !important;
-    background: transparent !important;
-  }
+/* Ajuste general para evitar quiebres extraños en listas/títulos */
+section#resume li,
+section#resume p,
+section#resume h2,
+section#resume h3 {
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+}
 
-  /* Neutralizar overlays/animaciones (scrambleText) dentro de strengths si existen */
-  section#resume .strengths .scrambleText,
-  section#resume .strengths .scrambleText--overlay,
-  section#resume .strengths .scrambleText--base {
-    position: static !important;
-    transform: none !important;
-    display: inline !important;
-    opacity: 1 !important;
-    width: auto !important;
-    height: auto !important;
-  }
+/* ===== Resume: restore normal flow & fix strengths list ===== */
 
-  /* Evitar que el header "STRENGTHS" se parta en dos líneas */
-  section#resume .section-title,
-  section#resume .strengths-header,
-  section#resume .strengths .section-title {
-    white-space: nowrap !important;
-    display: inline-block !important;
-    -webkit-hyphens: none !important;
-    hyphens: none !important;
-  }
+/* Revertir reglas globales de nowrap en resume (asegura texto normal) */
+section#resume h2,
+section#resume h3,
+section#resume p,
+section#resume li {
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+}
 
-  /* ==== Job title / Company: mantener en la misma línea y evitar overlap ==== */
-  /* Aplica al heading de cada experience (ajusta selector si tu markup usa otra clase) */
-  section#resume .resume--grid--experience--head h3,
-  section#resume .resume--grid--experience--head .job-company,
-  section#resume .experience .company {
-    white-space: nowrap !important;
-    display: inline-block !important;
-    vertical-align: middle !important;
-    margin-right: 8px !important;
-    overflow: visible !important;
-  }
+/* Strengths: comportamiento de lista seguro */
+/* Usar columnas solo en pantallas grandes y evitar solapamiento en móvil */
+section#resume .strengths {
+  margin: 0 0 8px 0 !important;
+  padding-left: 20px !important;
+  line-height: 1.7 !important;
+  column-count: 1 !important; /* mobile por defecto 1 */
+  -webkit-column-count: 1 !important;
+  -moz-column-count: 1 !important;
+  column-gap: 24px !important;
+}
 
-  /* Asegurar que la descripción no colapse encima de otras columnas (forzar flujo normal) */
-  section#resume .resume--grid--experience--body,
-  section#resume .resume--grid--experience--body p,
-  section#resume .resume--grid--experience--body .desc {
-    min-width: 0 !important;
-    position: static !important;
-    transform: none !important;
-    line-height: 1.6 !important;
-    margin: 4px 0 12px 0 !important;
+/* Habilitar 2 columnas en anchos mayores (ajusta breakpoint si hace falta) */
+@media (min-width: 900px) {
+  section#resume .strengths {
+    column-count: 2 !important;
+    -webkit-column-count: 2 !important;
+    -moz-column-count: 2 !important;
   }
+}
 
-  /* Si hay listas puntuales dentro de experience, asegurar spacing */
-  section#resume .resume--grid--experience--body ul {
-    margin-top: 8px !important;
-    margin-bottom: 8px !important;
-  }
+section#resume .strengths ul {
+  margin: 0 !important;
+  padding-left: 20px !important;
+}
+
+/* Cada li como bloque normal — evita transforms/position que solapan */
+section#resume .strengths ul li {
+  display: list-item !important;
+  position: static !important;
+  transform: none !important;
+  margin: 0 0 10px 0 !important;
+  break-inside: avoid !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  z-index: auto !important;
+  background: transparent !important;
+}
+
+/* Espaciado entre Strengths y Experience */
+section#resume .strengths {
+  margin-bottom: 10px !important;
+}
+section#resume .experience {
+  margin-top: 8px !important;
+  padding-top: 6px !important;
+}
+
+/* Neutralizar overlays solo dentro del resume headings si las hay */
+section#resume .scrambleText,
+section#resume .scrambleText--overlay,
+section#resume .scrambleText--base {
+  position: static !important;
+  transform: none !important;
+  display: inline-block !important;
+  width: auto !important;
+  opacity: 1 !important;
 }
