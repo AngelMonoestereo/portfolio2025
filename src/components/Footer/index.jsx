@@ -77,7 +77,8 @@ export default function Footer() {
   // Crear formulario temporal
   const formEl = document.createElement("form")
   formEl.method = "POST"
-  formEl.action = "https://formsubmit.co/el/vusadi"
+  formEl.action = "https://formsubmit.co/angelreyes@yahoo.com"
+
  // ✅ Usa tu endpoint real
 
   // Agregar campos
