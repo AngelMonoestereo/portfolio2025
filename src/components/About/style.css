@@ -185,3 +185,7 @@
   margin: 0 0.5ch;
   white-space: nowrap;
 }
+#about {
+  padding-top: 60px !important;
+  scroll-margin-top: 80px;
+}

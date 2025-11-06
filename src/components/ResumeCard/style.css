@@ -13,10 +13,7 @@
 /* GRID LAYOUT: left | center | right */
 .resumeCard--body {
   display: grid;
-  grid-template-columns: minmax(180px, 1fr) minmax(300px, 2fr) minmax(
-      120px,
-      0.8fr
-    );
+  grid-template-columns: 1fr 2fr max-content;
   gap: 28px;
   align-items: start;
   width: 100%;
@@ -130,4 +127,18 @@
   margin-top: 0.55em !important;
   flex: 0 0 6px !important;
   opacity: 0.95;
+}
+
+.resumeCard--body--right h4 {
+  white-space: nowrap;
+}
+
+.resumeCard--body--center li {
+  margin-bottom: 14px; /* Antes era muy pequeño en Safari */
+}
+
+@media (max-width: 760px) {
+  .resumeCard--body--left {
+    margin-bottom: 8px;
+  }
 }
