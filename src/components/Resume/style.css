@@ -416,3 +416,17 @@
     white-space: normal;
   }
 }
+
+/* --------------------------------------
+   1) STRENGTHS: mantener oraciones en una sola linea en desktop
+-------------------------------------- */
+.resume--grid--detail--data--skills li {
+  white-space: nowrap;
+}
+
+/* permitir wrap en pantallas muy pequeñas */
+@media (max-width: 600px) {
+  .resume--grid--detail--data--skills li {
+    white-space: normal;
+  }
+}

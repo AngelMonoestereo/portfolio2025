@@ -142,3 +142,18 @@
     margin-bottom: 8px;
   }
 }
+.resumeCard--body--left h4 {
+  white-space: nowrap; /* <--- fuerza Synchrony Financial en una línea */
+}
+
+/* Spacing on desktop */
+.resumeCard--body--center {
+  margin-top: 8px;
+}
+
+/* Mobile keep as is (no big spacing) */
+@media (max-width: 760px) {
+  .resumeCard--body--center {
+    margin-top: 0px;
+  }
+}
