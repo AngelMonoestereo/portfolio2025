@@ -98,6 +98,12 @@ subject.name = "_subject"
 subject.value = "New message from portfolio!"
 formEl.appendChild(subject)
 
+const fromName = document.createElement("input");
+fromName.type = "hidden";
+fromName.name = "_from";
+fromName.value = "Portfolio Contact Form";
+formEl.appendChild(fromName);
+
 const template = document.createElement("input")
 template.type = "hidden"
 template.name = "_template"
