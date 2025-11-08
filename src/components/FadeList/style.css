@@ -13,3 +13,7 @@
   overflow-wrap: normal; /* Previene quiebres en Safari */
   word-break: keep-all;
 }
+
+.fadeList li {
+  white-space: nowrap;
+}
