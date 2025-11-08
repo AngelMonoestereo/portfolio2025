@@ -18,7 +18,7 @@ import fileIcon from "../../assets/Icon/file.svg"
 
 // data
 import technicalSkills from "../../constants/technicalSkills.json"
-import technicalSkills2 from "../../constants/technicalSkills2.json"
+
 import qualities from "../../constants/qualities.json"
 import experienceList from "../../constants/experienceList.json"
 
@@ -124,10 +124,10 @@ export default function Resume() {
 
             <div className="resume--grid--detail--data--skills">
               <h4><ScrambleText shuffle delay={0.6}>Technical Skills</ScrambleText></h4>
-              <div className="double">
-                <FadeList delay={0.7} controls={controls} data={technicalSkills} shuffle />
-                <FadeList delay={0.9} controls={controls} data={technicalSkills2} shuffle />
-              </div>
+              <div className="skills-list">
+  <FadeList delay={0.7} controls={controls} data={technicalSkills} shuffle />
+</div>
+
             </div>
 
             <div className="resume--grid--detail--data--skills">

@@ -157,3 +157,14 @@
     margin-top: 0px;
   }
 }
+.resume--card--body p {
+  margin-bottom: 0.75rem; /* ✅ separa puntos */
+}
+
+.resume--card--date {
+  white-space: nowrap; /* 👈 mantiene la fecha en una sola línea */
+  text-align: right;
+}
+.resume--card--body li {
+  margin-bottom: 0.45rem;
+}

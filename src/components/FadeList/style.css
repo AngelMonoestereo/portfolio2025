@@ -1,3 +1,15 @@
+/* Ajusta el UL general */
+.fadeList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-.fadeList{
+/* Ajusta cada item */
+.fadeList li {
+  margin-bottom: 0.4rem;
+  line-height: 1.4em;
+  white-space: nowrap; /* 👈 Mantiene cada ítem en una sola línea */
+  overflow-wrap: normal; /* Previene quiebres en Safari */
+  word-break: keep-all;
 }

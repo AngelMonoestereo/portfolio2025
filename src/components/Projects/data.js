@@ -34,7 +34,7 @@ export const PROJECTS = [
       "NFT marketplace UI built during internship with API integration and dynamic routing.",
     tags: ["React", "Vite", "Framer Motion"],
     image: nft,
-    live: "https://angel-internship-nft.vercel.app",
+    live: "https://angel-internship.vercel.app",
     code: "https://github.com/AngelMonoestereo/angel-internship",
   },
   {
