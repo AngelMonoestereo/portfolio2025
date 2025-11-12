@@ -104,7 +104,6 @@ export default function Header() {
 
           <span className="header--hash">{"//"}</span>
 
-          {/* Resume (place file at /public/Angel-Reyes-Frontend-Developer.pdf) */}
           <a
             href="/Angel-Reyes-Resume.pdf"
             target="_blank"
