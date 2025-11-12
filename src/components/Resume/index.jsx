@@ -40,7 +40,8 @@ export default function Resume() {
   const opacityVariant = { hidden: { opacity: 0 }, visible: { opacity: 1 } }
   const blurVariants = {
     hidden: { opacity: 0, filter: "blur(10px)" },
-    visible: { opacity: 1, filter: "blur(0px)" },
+    visible: { opacity: 1, filter: "none" },
+
   }
 
   return (

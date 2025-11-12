@@ -168,3 +168,19 @@
 .resume--card--body li {
   margin-bottom: 0.45rem;
 }
+
+.resume--card--title {
+  white-space: nowrap;
+}
+
+.resumeCard--body--left h4,
+.resumeCard--body--left p {
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .resumeCard--body--left h4,
+  .resumeCard--body--left p {
+    white-space: normal;
+  }
+}

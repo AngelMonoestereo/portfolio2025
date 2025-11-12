@@ -434,3 +434,9 @@
   columns: 2;
   column-gap: 2rem;
 }
+
+.resume--grid {
+  -webkit-font-smoothing: antialiased;
+  backface-visibility: hidden;
+  transform: translateZ(0); /* Safari performance fix */
+}
