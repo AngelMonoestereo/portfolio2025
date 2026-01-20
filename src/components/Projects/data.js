@@ -1,24 +1,24 @@
 // src/components/Projects/data.js
 
 // === Image imports ===
-import portfolio from "../../assets/Images/portfolio.png";
+// import portfolio from "../../assets/Images/portfolio.png";
 import nft from "../../assets/Images/nft.png";
 import skinstric from "../../assets/Images/Skinstric.png";
 import vinylrecord from "../../assets/Images/VinylRecord.png";
 import movieapi from "../../assets/Images/movieAPI.png";
-import youtubeclone from "../../assets/Images/youtubeclone.png";
+// import youtubeclone from "../../assets/Images/youtubeclone.png";
 
 // === Project data ===
 export const PROJECTS = [
-  {
-    title: "Portfolio 2025",
-    description:
-      "Personal portfolio showcasing selected projects and experience as a frontend developer.",
-    tags: ["React", "Vite", "Framer Motion"],
-    image: portfolio,
-    live: "https://areyes-portfolio.vercel.app",
-    code: "https://github.com/angelmonoestereo/portfolio",
-  },
+  // {
+  //   title: "Portfolio 2025",
+  //   description:
+  //     "Personal portfolio showcasing selected projects and experience as a frontend developer.",
+  //   tags: ["React", "Vite", "Framer Motion"],
+  //   image: portfolio,
+  //   live: "https://areyes-portfolio.vercel.app",
+  //   code: "https://github.com/angelmonoestereo/portfolio",
+  // },
   {
     title: "Skinstric AI",
     description:
@@ -55,13 +55,13 @@ export const PROJECTS = [
     live: "https://react-movies-clone-v2.vercel.app/",
     code: "https://github.com/AngelMonoestereo/react-movies-clone-v2.git",
   },
-  {
-    title: "YouTube Clone",
-    description:
-      "Video streaming clone inspired by YouTube with search, playback, and responsive layout.",
-    tags: ["React", "CSS", "API"],
-    image: youtubeclone,
-    live: "https://youtube-clone-react-v5l4.vercel.app",
-    code: "https://github.com/AngelMonoestereo/youtube-clone-react.git",
-  },
+  // {
+  //   title: "YouTube Clone",
+  //   description:
+  //     "Video streaming clone inspired by YouTube with search, playback, and responsive layout.",
+  //   tags: ["React", "CSS", "API"],
+  //   image: youtubeclone,
+  //   live: "https://youtube-clone-react-v5l4.vercel.app",
+  //   code: "https://github.com/AngelMonoestereo/youtube-clone-react.git",
+  // },
 ];
